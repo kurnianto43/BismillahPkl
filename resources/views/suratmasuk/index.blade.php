@@ -12,6 +12,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Surat Keluar</strong>
+                                <a class="btn btn-info btn-sm pull-right" href="{{ route('suratmasuk.pdf') }}"><i class="fa fa-print"></i> Catak</a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -25,50 +26,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                         @foreach( $suratmasuks as $suratmasuk )
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
+                                            <td>{{ $suratmasuk ->nomor_surat }}</td>
+                                            <td>{{ $suratmasuk ->tanggal_masuk }}</td>
+                                            <td>{{ $suratmasuk ->perihal }}</td>
+                                            <td>{{ $suratmasuk ->tujuan }}</td>
                                             <td>
-                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"></i></a>
+                                                <form action="">
+                                                    <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
                                             <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
                                             <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
+                                                </form>
+                                            
                                             </td>
                                         </tr>
-                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"></i></a>
-                                            <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
-                                            <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"></i></a>
-                                            <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
-                                            <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"></i></a>
-                                            <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
-                                            <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
-                                            </td>
-                                        </tr>
+                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

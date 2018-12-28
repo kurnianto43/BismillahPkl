@@ -58,7 +58,7 @@
                                     </span>
                                 @endif
                         </div>
-                        <div class="checkbox">
+<!--                         <div class="checkbox">
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
@@ -66,11 +66,9 @@
                                 <a href="#">Forgotten Password?</a>
                             </label>
 
-                        </div>
-                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
-                        <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                        </div>
+                        </div> -->
+                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Masuk</button>
+                        
                     </form>
                 </div>
             </div>

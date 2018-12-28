@@ -12,6 +12,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Surat Keluar</strong>
+                                <a class="btn btn-info btn-sm pull-right" href="{{ route('suratkeluar.pdf') }}"><i class="fa fa-print"></i></a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -42,7 +43,7 @@
                                             <td>Edinburgh</td>
                                             <td>$320,800</td>
                                             <td>
-                                            <a class="btn btn-info btn-sm" href=""><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
                                             <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
                                             <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
                                             </td>

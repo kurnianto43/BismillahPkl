@@ -70,7 +70,7 @@
                     @auth
                         <a href="{{ route('beranda') }}">Beranda</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Masuk</a>
                     @endauth
                 </div>
             @endif
