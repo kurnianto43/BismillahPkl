@@ -12,7 +12,7 @@ class SuratMasukController extends Controller
     {
 
     	$suratmasuks = SuratMasuk::all();
-    	return view('suratmasuk.index', compact('suratmasuks'));
+    	return view('suratmasuk.indexsuratmasuk', compact('suratmasuks'));
     }
 
     public function create()
