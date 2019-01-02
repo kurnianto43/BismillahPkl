@@ -29,14 +29,14 @@
         </li>
        
         <li class="treeview">
-          <a href="{{ route('suratmasuk.index') }}">
+          <a href="">
             <i class="fa fa-envelope-open"></i> <span>Surat Masuk</span>
             <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Data Surat Masuk</a></li>
+            <li><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-circle-o"></i> Data Surat Masuk</a></li>
             <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Tambah Data Surat Masuk</a></li>
           </ul>
         </li>
