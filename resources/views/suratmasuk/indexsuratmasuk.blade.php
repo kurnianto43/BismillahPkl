@@ -33,20 +33,26 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>No</th>
                   <th>Nomor Surat</th>
-                  <th>Tanggal Surat</th>
+                  <th>Unit Kerja</th>
                   <th>Perihal</th>
-                  <th>Tujuan</th>
+                  <th>Tanggal Surat</th>
+                  <th>Tanggal Diterima</th>
                   <th>Aksi</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @foreach( $suratmasuks as $suratmasuk )
                     <tr>
-                      <td>{{ $suratmasuk ->nomor_surat }}</td>
-                      <td>{{ $suratmasuk ->tanggal_masuk }}</td>
-                      <td>{{ $suratmasuk ->perihal }}</td>
-                      <td>{{ $suratmasuk ->tujuan }}</td>
+                      <td>{{ $suratmasuk -> id}}</td>
+                      <td>{{ $suratmasuk -> nomor_surat }}</td>
+                      <td>{{ $suratmasuk -> unit_kerja }}</td>
+                      <td>{{ $suratmasuk -> perihal }}</td>
+                      <td>{{ $suratmasuk -> tanggal_surat }}</td>
+                      <td>{{ $suratmasuk -> tanggal_diterima }}</td>
+      
                       <td>
                         <form action="">
                             <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
@@ -57,15 +63,7 @@
                     </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Nomor Surat</th>
-                  <th>Tanggal Surat</th>
-                  <th>Perihal</th>
-                  <th>Tujuan</th>
-                  <th>Aksi</th>
-                </tr>
-                </tfoot>
+                
               </table>
             </div>
             <!-- /.box-body -->

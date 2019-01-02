@@ -24,9 +24,11 @@ class SuratMasukController extends Controller
     {
     	SuratMasuk::create([
     		'nomor_surat' => request('nomor_surat'),
-    		'tanggal_masuk' => request('tanggal_masuk'),
-    		'perihal' => request('perihal'),
-    		'tujuan' => request('tujuan'),
+            'unit_kerja' => request('unit_kerja'),
+            'perihal' => request('perihal'),
+    		'tanggal_surat' => request('tanggal_surat'),
+    		'tanggal_diterima' => request('tanggal_diterima'),
+            'lampiran' => request('lampiran'),
     	]);
     	return redirect('surat-masuk');
     }

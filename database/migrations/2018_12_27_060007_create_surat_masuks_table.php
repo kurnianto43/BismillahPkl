@@ -15,10 +15,12 @@ class CreateSuratMasuksTable extends Migration
     {
         Schema::create('surat_masuks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('unit_kerja');
             $table->string('nomor_surat');
-            $table->date('tanggal_masuk');
+            $table->date('tanggal_surat');
+            $table->date('tanggal_diterima');
             $table->string('perihal');
-            $table->string('tujuan');
+            $table->string('lampiran')->nullable();
             $table->timestamps();
         });
     }

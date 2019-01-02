@@ -28,33 +28,53 @@
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Nomor Surat</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nomor_surat" id="inputEmail3" placeholder="Email">
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="nomor_surat" id="inputEmail3">
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Tanggal Masuk</label>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
 
-                  <div class="col-sm-10">
-                    <input type="date" name="tanggal_masuk" class="form-control" id="inputPassword3" placeholder="Password">
+                  <div class="col-sm-9">
+                    <input type="text" name="unit_kerja" class="form-control" id="inputPassword3">
                   </div>
-                </div>
+                  </div>
+
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Perihal</label>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Perihal</label>
 
-                  <div class="col-sm-10">
-                    <input type="text" name="perihal" class="form-control" id="inputPassword3" placeholder="Password">
+                  <div class="col-sm-9">
+                  <textarea rows="3" cols="80" name="perihal" class="form-control"></textarea>
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Tujuan</label>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Surat</label>
 
-                  <div class="col-sm-10">
-                    <input type="text" name="tujuan" class="form-control" id="inputPassword3" placeholder="Password">
+                  <div class="col-sm-9">
+                    <input type="date" name="tanggal_surat" class="form-control" id="inputPassword3">
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
+
+                  <div class="col-sm-9">
+                    <input type="date" name="tanggal_diterima" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
+
+                  <div class="col-sm-9">
+                    <input type="file" name="lampiran" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

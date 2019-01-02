@@ -18,7 +18,7 @@
         }
         table
         {
-            width: 80%;
+            width: 100%;
         }
 
         table, th, td
@@ -47,19 +47,23 @@
     <table align="center">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Nomor Surat</th>
-                                            <th>Tanggal Surat</th>
+                                            <th>Unit Kerja</th>
                                             <th>Perihal</th>
-                                            <th>Tujuan</th>
+                                            <th>Tanggal Surat</th>
+                                            <th>Tanggal Diterima</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                          @foreach($suratmasuks as $suratmasuk)
                                         <tr>
+                                            <td>{{ $suratmasuk->id }}</td>
                                             <td>{{ $suratmasuk->nomor_surat }}</td>
-                                            <td>{{ $suratmasuk->tanggal_masuk }}</td>
+                                            <td>{{ $suratmasuk->unit_kerja }}</td>
                                             <td>{{ $suratmasuk->perihal }}</td>
-                                            <td>{{ $suratmasuk->tujuan }}</td>
+                                            <td>{{ $suratmasuk->tanggal_surat }}</td>
+                                            <td>{{ $suratmasuk->tanggal_diterima }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
