@@ -37,6 +37,7 @@ class SuratMasukController extends Controller
     {
     	$suratmasuks = SuratMasuk::all();
     	$pdf = PDF::loadView('suratmasuk.pdf', compact('suratmasuks'));
+        $pdf->setPaper('a4', 'landscape');
     	return $pdf->download('suratmasuk.pdf', compact('suratmasuks'));
     }
 }
