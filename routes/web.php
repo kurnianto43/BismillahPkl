@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/beranda', 'HomeController@index')->name('beranda');
     Route::get('surat-masuk', 'SuratMasukController@index')->name('suratmasuk.index');
+    Route::get('/editprofile', 'UserController@index')->name('editprofile');
+    Route::post('/editprofile', 'UserController@update')->name('updateprofil');
 
 
 
