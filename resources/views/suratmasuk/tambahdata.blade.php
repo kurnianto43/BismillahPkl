@@ -1,15 +1,18 @@
 @extends('layouts.master2')
 
+@section('title')
+Tambah Data Surat Masuk
+@endsection
+
 @section('content')
     <section class="content-header">
       <h1>
-        General Form Elements
-        <small>Preview</small>
+        Tambah Data Surat Masuk
+
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
+        <li><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-envelope-open"></i> Surat Masuk</a></li>
+        <li class="active">Tambah Data Surat Masuk</li>
       </ol>
     </section>
 
@@ -20,11 +23,11 @@
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Horizontal Form</h3>
+              <h3 class="box-title">Form tambah data</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="{{ route('suratmasuk.store') }}" method="POST">
+            <form class="form-horizontal" action="{{ route('suratmasuk.store') }}" method="POST" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -72,14 +75,15 @@
 
                   <div class="col-sm-9">
                     <input type="file" name="lampiran" class="form-control" id="inputPassword3">
+                    <p>** Ukuran maksimal 2Mb</p>
                   </div>
                 </div>
 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Sign in</button>
+               <a href="{{ route('suratmasuk.index') }}" class="btn btn-default">Batal</a>
+                <button type="submit" class="btn btn-info pull-right">Simpan</button>
               </div>
               <!-- /.box-footer -->
             </form>

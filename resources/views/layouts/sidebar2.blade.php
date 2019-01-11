@@ -25,7 +25,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU UTAMA</li>
-        <li><a href="#"><i class="fa fa-dashboard"></i> <span>Beranda</span></a>
+        <li><a href="{{ route('beranda') }}"><i class="fa fa-dashboard"></i> <span>Beranda</span></a>
         </li>
        
         <li class="treeview">
@@ -37,7 +37,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-circle-o"></i> Data Surat Masuk</a></li>
-            <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Tambah Data Surat Masuk</a></li>
+            <li><a href="{{ route('suratmasuk.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Surat Masuk</a></li>
           </ul>
         </li>
         <li class="treeview">

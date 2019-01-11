@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SuratMasuk;
 use PDF;
+use Storage;
 
 class SuratMasukController extends Controller
 {
@@ -20,17 +21,34 @@ class SuratMasukController extends Controller
     	return view('suratmasuk.tambahdata');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-    	SuratMasuk::create([
-    		'nomor_surat' => request('nomor_surat'),
+
+    	$path = $request->file('lampiran')->store('lampiran_surat_masuk');
+
+        SuratMasuk::create([
+            'nomor_surat' => request('nomor_surat'),
             'unit_kerja' => request('unit_kerja'),
             'perihal' => request('perihal'),
-    		'tanggal_surat' => request('tanggal_surat'),
-    		'tanggal_diterima' => request('tanggal_diterima'),
-            'lampiran' => request('lampiran'),
-    	]);
-    	return redirect('surat-masuk');
+            'tanggal_surat' => request('tanggal_surat'),
+            'tanggal_diterima' => request('tanggal_diterima'),
+            'lampiran' => $path,
+        ]);
+
+        return redirect('surat-masuk');
+    }
+
+
+    public function details(Suratmasuk $suratmasuk)
+    {
+
+        return view('suratmasuk.detailsuratmasuk', compact('suratmasuk'));
+    }
+
+
+    public function response(Suratmasuk $suratmasuk)
+    {
+        return Storage::response($suratmasuk->lampiran);
     }
 
     public function pdf()

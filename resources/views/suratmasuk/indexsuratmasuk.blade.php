@@ -1,19 +1,19 @@
 @extends('layouts.master2')
 
-
+@section('title')
+Data surat masuk
+@endsection
 @section('content')
 
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Data Surat Masuk
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li><a href="#"><i class="fa fa-envelope-open"></i> Surat Masuk</a></li>
+        <li class="active">Data surat masuk</li>
       </ol>
     </section>
 
@@ -23,7 +23,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Tabel data surat masuk</h3>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.pdf') }}"><i class="fa fa-print"></i></a>
               <a class="btn btn-primary pull-right" href="{{ route('suratmasuk.create') }}"><i class="fa fa-plus"></i></a>
             </div>
@@ -57,7 +57,7 @@
                         <form action="">
                             <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
                             <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
-                            <a  class="btn btn-secondary btn-sm" href=""><i class="fa fa-info-circle"></i></a>
+                            <a  class="btn btn-info btn-sm" href="{{ route('suratmasuk.detail', $suratmasuk) }}"><i class="fa fa-info-circle"></i></a>
                         </form>                      
                       </td>
                     </tr>
