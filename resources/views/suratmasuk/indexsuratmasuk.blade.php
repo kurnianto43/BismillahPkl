@@ -39,7 +39,7 @@ Data surat masuk
                   <th>Perihal</th>
                   <th>Tanggal Surat</th>
                   <th>Tanggal Diterima</th>
-                  <th>Aksi</th>
+                  <th width="11%">Aksi</th>
 
                 </tr>
                 </thead>
@@ -54,11 +54,16 @@ Data surat masuk
                       <td>{{ $suratmasuk -> tanggal_diterima }}</td>
       
                       <td>
-                        <form action="">
-                            <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
-                            <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
-                            <a  class="btn btn-info btn-sm" href="{{ route('suratmasuk.detail', $suratmasuk) }}"><i class="fa fa-info-circle"></i></a>
-                        </form>                      
+                        <a class="btn btn-warning btn-sm" href="{{ route('suratmasuk.edit', $suratmasuk) }}"><i class="fa fa-edit"></i></a>
+                        <a  class="btn btn-info btn-sm" href="{{ route('suratmasuk.detail', $suratmasuk) }}"><i class="fa fa-info-circle"></i></a>
+                        <div class="pull-right">
+                          <form action="{{ route('suratmasuk.destroy', $suratmasuk) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+                        </div>
+                                              
                       </td>
                     </tr>
                 @endforeach

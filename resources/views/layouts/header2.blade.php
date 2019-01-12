@@ -29,7 +29,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/images/avatar/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
 
                 <p>
                   {{ Auth::user()->nama }}
