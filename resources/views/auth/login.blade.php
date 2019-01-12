@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>UPT Pajak Daerah - Login</title>
+  <title>UPT Pajak Daerah Wilayah I - Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,7 +39,7 @@
 @else
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>UPT </b>PAJAK DAERAH</a>
+    <a href="../../index2.html"><b>UPT PAJAK DAERAH WILAYAH I KOTA BANJARBARU</b> </a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

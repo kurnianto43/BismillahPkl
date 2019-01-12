@@ -33,4 +33,7 @@ Route::group(['middleware' => ['role:admin']], function () {
      Route::post('surat-masuk-tambah', 'SuratMasukController@store')->name('suratmasuk.store');
      Route::get('surat-masuk/rincian/{suratmasuk}', 'SuratMasukController@details')->name('suratmasuk.detail');
      Route::get('{suratmasuk}/lihat/download', 'SuratMasukController@response')->name('suratmasuk.response');
+     Route::get('{suratmasuk}/edit', 'SuratMasukController@edit')->name('suratmasuk.edit');
+     Route::patch('{suratmasuk}/edit', 'SuratMasukController@update')->name('suratmasuk.update');
+     Route::delete('{suratmasuk}/hapus', 'SuratMasukController@destroy')->name('suratmasuk.destroy');
 });
