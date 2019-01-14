@@ -30,56 +30,86 @@ Tambah Data Surat Masuk
             <form class="form-horizontal" action="{{ route('suratmasuk.store') }}" method="POST" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="box-body">
-                <div class="form-group">
+
+                <div class="form-group {{ $errors->has('nomor_surat') ? ' has-error' : '' }}">
                   <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
-
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" name="nomor_surat" id="inputEmail3">
+                    <input type="text" class="form-control" name="nomor_surat" value="{{ old('nomor_surat') }}" id="inputEmail3">
+
+                            @if ($errors->has('nomor_surat'))      
+                                    <span class="help-block">{{ $errors->first('nomor_surat') }}</span>
+                            @endif
+
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
 
-                  <div class="col-sm-9">
-                    <input type="text" name="unit_kerja" class="form-control" id="inputPassword3">
-                  </div>
-                  </div>
+                <div class="form-group {{ $errors->has('unit_kerja') ? ' has-error' : '' }}">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="unit_kerja" value="{{ old('unit_kerja') }}" class="form-control" id="inputPassword3">
 
-                <div class="form-group">
+                            @if ($errors->has('unit_kerja'))      
+                                    <span class="help-block">{{ $errors->first('unit_kerja') }}</span>
+                            @endif
+
+                    </div>
+                </div>
+
+
+                <div class="form-group {{ $errors->has('perihal') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Perihal</label>
-
                   <div class="col-sm-9">
-                  <textarea rows="3" cols="80" name="perihal" class="form-control"></textarea>
+                    <textarea rows="3" cols="80" name="perihal" class="form-control">{{ old('perihal') }}</textarea>
+
+                            @if ($errors->has('perihal'))      
+                                    <span class="help-block">{{ $errors->first('perihal') }}</span>
+                            @endif
+
                   </div>
                 </div>
 
-                <div class="form-group">
+
+                <div class="form-group {{ $errors->has('tanggal_surat') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Surat</label>
-
                   <div class="col-sm-9">
-                    <input type="date" name="tanggal_surat" class="form-control" id="inputPassword3">
+                    <input type="date" name="tanggal_surat" value="{{ old('tanggal_surat') }}" class="form-control" id="inputPassword3">
+
+                            @if ($errors->has('tanggal_surat'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_surat') }}</span>
+                            @endif
+
                   </div>
                 </div>
 
-                <div class="form-group">
+
+                <div class="form-group {{ $errors->has('tanggal_diterima') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
-
                   <div class="col-sm-9">
-                    <input type="date" name="tanggal_diterima" class="form-control" id="inputPassword3">
+                    <input type="date" name="tanggal_diterima" value="{{ old('tanggal_diterima') }}" class="form-control" id="inputPassword3">
+
+                            @if ($errors->has('tanggal_diterima'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_diterima') }}</span>
+                            @endif
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
 
+                <div class="form-group {{ $errors->has('lampiran') ? ' has-error' : '' }}">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
                   <div class="col-sm-9">
-                    <input type="file" name="lampiran" class="form-control" id="inputPassword3">
+                    <input type="file" name="lampiran" placeholder="Masukan file" value="{{ old('lampiran') }}" class="form-control" id="inputPassword3">
+
+                             @if ($errors->has('lampiran'))      
+                                    <span class="help-block">{{ $errors->first('lampiran') }}</span>
+                            @endif
+
                     <p>** Ukuran maksimal 2Mb</p>
                   </div>
                 </div>
 
-              </div>
+
+            </div>
               <!-- /.box-body -->
               <div class="box-footer">
                <a href="{{ route('suratmasuk.index') }}" class="btn btn-default">Batal</a>

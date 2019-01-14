@@ -17,6 +17,8 @@ Data surat masuk
       </ol>
     </section>
 
+    @include('layouts.partials._alert')
+
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -39,14 +41,16 @@ Data surat masuk
                   <th>Perihal</th>
                   <th>Tanggal Surat</th>
                   <th>Tanggal Diterima</th>
-                  <th width="11%">Aksi</th>
+                  <th width="81">Aksi</th>
 
                 </tr>
                 </thead>
                 <tbody>
+                <?php $no = 0;?>
                 @foreach( $suratmasuks as $suratmasuk )
+                <?php $no++ ;?>
                     <tr>
-                      <td>{{ $suratmasuk -> id}}</td>
+                      <td>{{ $no }}</td>
                       <td>{{ $suratmasuk -> nomor_surat }}</td>
                       <td>{{ $suratmasuk -> unit_kerja }}</td>
                       <td>{{ $suratmasuk -> perihal }}</td>

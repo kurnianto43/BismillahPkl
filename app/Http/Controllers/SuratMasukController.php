@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SuratmasukStoreRequest;
 use App\SuratMasuk;
 use PDF;
 use Storage;
 
 class SuratMasukController extends Controller
 {
+
+
     public function index()
     {
 
     	$suratmasuks = SuratMasuk::all();
     	return view('suratmasuk.indexsuratmasuk', compact('suratmasuks'));
     }
+
+
 
     public function create()
     {
@@ -23,9 +28,10 @@ class SuratMasukController extends Controller
 
 
 
-
-    public function store(Request $request)
+    public function store(SuratmasukStoreRequest $request)
     {
+
+       $validated = $request->validated();
 
     	$path = $request->file('lampiran')->store('lampiran_surat_masuk');
 
@@ -38,7 +44,7 @@ class SuratMasukController extends Controller
             'lampiran' => $path,
         ]);
 
-        return redirect('surat-masuk');
+        return redirect()->route('suratmasuk.index')->with('success', 'Data berhasil ditambahkan');
     }
 
 
@@ -67,10 +73,14 @@ class SuratMasukController extends Controller
     }
 
 
+
+
     public function edit(Suratmasuk $suratmasuk)
     {
         return view('suratmasuk.editsuratmasuk', compact('suratmasuk')); 
     }
+
+
 
 
     public function update(Suratmasuk $suratmasuk)
@@ -86,14 +96,16 @@ class SuratMasukController extends Controller
             'lampiran' => request()->file('lampiran')->store('lampiran_surat_masuk')
         ]);
 
-        return redirect()->route('suratmasuk.index');
+        return redirect()->route('suratmasuk.index')->with('warning', ' Data berhasil diubah');
     }
+
 
 
     public function destroy(Suratmasuk $suratmasuk)
     {
         $suratmasuk->delete();
 
-        return redirect()->route('suratmasuk.index');
+        return redirect()->route('suratmasuk.index')->with('danger', ' Data berhasil dihapus');
     }
+
 }
