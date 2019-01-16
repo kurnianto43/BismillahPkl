@@ -37,12 +37,12 @@ Beranda
           <div class="small-box bg-green">
             <div class="inner">
               <p>Surat Keluar</p>
-              <h3>53</h3>
+              <h3>{{ $suratkeluarCount }}</h3>
             </div>
             <div class="icon">
               <i class="ion ion-log-out"></i>
             </div>
-            <a href="#" class="small-box-footer">Selengkapnya... <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('suratkeluar.index') }}" class="small-box-footer">Selengkapnya... <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

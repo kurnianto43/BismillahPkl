@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Users;
+use App\User;
 
 class UserController extends Controller
 {
-     public function index()
+    public function index()
     {
-
-    	return view('Users.editprofile');
+    	return view('users.profil');
     }
 
-    public function update(Request $request )
-    {
-    	$request->file('avatar')->store('avatars');
 
-    	$request->user()->update([
-    		'nama' => $nama,
-    		'avatar' => $avatar
-    	]);
+    public function edit(User $user)
+    {
+        return view('users.sementara', compact('user'));
     }
+
+    public function create()
+    {
+        return view('users.sementara');
+    }
+
+    
 }

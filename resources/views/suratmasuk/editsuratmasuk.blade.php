@@ -1,18 +1,18 @@
 @extends('layouts.master2')
 
 @section('title')
-Tambah Data Surat Masuk
+Ubah Data Surat Masuk
 @endsection
 
 @section('content')
     <section class="content-header">
       <h1>
-        Tambah Data Surat Masuk
+        Ubah Data Surat Masuk
 
       </h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-envelope-open"></i> Surat Masuk</a></li>
-        <li class="active">Tambah Data Surat Masuk</li>
+        <li><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-envelope-open"></i> Surat Masuk</a></li>
+        <li class="active">Ubah Data Surat Masuk</li>
       </ol>
     </section>
 
@@ -23,7 +23,7 @@ Tambah Data Surat Masuk
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Form tambah data</h3>
+              <h3 class="box-title">Form ubah data</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -31,19 +31,25 @@ Tambah Data Surat Masuk
               {{ csrf_field() }}
               {{ method_field('PATCH') }}
               <div class="box-body">
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('nomor_surat') ? ' has-error' : '' }}">
                   <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
 
                   <div class="col-sm-9">
                     <input type="text" class="form-control" value="{{ $suratmasuk -> nomor_surat }}" name="nomor_surat" id="inputEmail3">
+                    @if ($errors->has('nomor_surat'))      
+                                    <span class="help-block">{{ $errors->first('nomor_surat') }}</span>
+                            @endif
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('unit_kerja') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
 
                   <div class="col-sm-9">
                     <input type="text" name="unit_kerja" class="form-control" value="{{ $suratmasuk -> unit_kerja }}" id="inputPassword3">
+                    @if ($errors->has('unit_kerja'))      
+                                    <span class="help-block">{{ $errors->first('unit_kerja') }}</span>
+                            @endif
                   </div>
                   </div>
 
@@ -83,7 +89,7 @@ Tambah Data Surat Masuk
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-               <a href="" class="btn btn-default">Batal</a>
+               <a href="{{ route('suratmasuk.index') }}" class="btn btn-default">Batal</a>
                 <button type="submit" class="btn btn-info pull-right">Simpan</button>
               </div>
               <!-- /.box-footer -->

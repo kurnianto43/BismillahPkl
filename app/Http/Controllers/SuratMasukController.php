@@ -7,6 +7,7 @@ use App\Http\Requests\SuratmasukStoreRequest;
 use App\SuratMasuk;
 use PDF;
 use Storage;
+use Illuminate\Validation\Rule;
 
 class SuratMasukController extends Controller
 {
@@ -21,9 +22,10 @@ class SuratMasukController extends Controller
 
 
 
-    public function create()
+    public function create(Suratmasuk $suratmasuk)
     {
-    	return view('suratmasuk.tambahdata');
+
+    	return view('suratmasuk.tambahdata', compact('suratmasuk'));
     }
 
 
@@ -64,28 +66,23 @@ class SuratMasukController extends Controller
 
 
 
-    public function pdf()
-    {
-    	$suratmasuks = SuratMasuk::all();
-    	$pdf = PDF::loadView('suratmasuk.pdf', compact('suratmasuks'));
-        $pdf->setPaper('a4', 'landscape');
-    	return $pdf->download('suratmasuk.pdf', compact('suratmasuks'));
-    }
-
-
-
-
     public function edit(Suratmasuk $suratmasuk)
     {
         return view('suratmasuk.editsuratmasuk', compact('suratmasuk')); 
     }
 
 
-
-
     public function update(Suratmasuk $suratmasuk)
     {
-
+        $this->validate(request(), [
+            'nomor_surat' => Rule::unique('surat_masuks', 'nomor_surat')->ignore($suratmasuk->id),
+            'nomor_surat' => 'required|max:50',
+            'unit_kerja' => 'required|max:50',
+            'perihal' => 'required|max:100',
+            'tanggal_surat' => 'required',
+            'tanggal_diterima' => 'required',
+            'lampiran' => 'required|max:2500'
+        ]); 
 
         $suratmasuk->update([
             'nomor_surat' => request('nomor_surat'),
@@ -106,6 +103,15 @@ class SuratMasukController extends Controller
         $suratmasuk->delete();
 
         return redirect()->route('suratmasuk.index')->with('danger', ' Data berhasil dihapus');
+    }
+
+
+    public function pdf()
+    {
+        $suratmasuks = SuratMasuk::all();
+        $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('suratmasuk.pdf', compact('suratmasuks'));
     }
 
 }

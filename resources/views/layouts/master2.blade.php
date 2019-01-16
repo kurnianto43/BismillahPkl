@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>UPT Pajak Daerah - @yield('title')</title>
+  <title>UPT Pajak Daerah Wilayah I - @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{URL::asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
@@ -52,34 +52,22 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script type="text/javascript" src="{{URL::asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script type="text/javascript" src="{{URL::asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- DataTables -->
-<script type="text/javascript" src="{{URL::asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
-<script type="text/javascript" src="{{URL::asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
-<script type="text/javascript" src="{{URL::asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
+<script type="text/javascript" src="{{ asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script type="text/javascript" src="{{URL::asset('dist/js/adminlte.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script type="text/javascript" src="{{URL::asset('dist/js/demo.js')}}"></script>
+<script type="text/javascript" src="{{ asset('dist/js/demo.js')}}"></script>
 
 <!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+@yield('script')
 </body>
 </html>

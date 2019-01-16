@@ -39,7 +39,7 @@
 @else
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>UPT PAJAK DAERAH WILAYAH I KOTA BANJARBARU</b> </a>
+    <a href=""><b>UPT PAJAK DAERAH WILAYAH I KOTA BANJARBARU</b> </a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -48,11 +48,11 @@
    <form action="{{ route('login') }}" method="POST">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        @if ($errors->has('email'))
+        <input type="username" class="form-control" name="username" placeholder="Username">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
       </div>

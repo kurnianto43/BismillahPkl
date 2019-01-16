@@ -19,7 +19,7 @@ Tambah Data Surat Masuk
     <!-- Main content -->
     <section class="content">
       <div class="row">
-<div class="col-md-8 col-md-offset-1">
+<div class="col-md-8 col-md-offset-2">
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -34,7 +34,7 @@ Tambah Data Surat Masuk
                 <div class="form-group {{ $errors->has('nomor_surat') ? ' has-error' : '' }}">
                   <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" name="nomor_surat" value="{{ old('nomor_surat') }}" id="inputEmail3">
+                    <input type="text" class="form-control" name="nomor_surat" value="{{ old('nomor_surat') }}" id="nomor_surat">
 
                             @if ($errors->has('nomor_surat'))      
                                     <span class="help-block">{{ $errors->first('nomor_surat') }}</span>
@@ -120,4 +120,8 @@ Tambah Data Surat Masuk
           </div>
             </section>
           </div>
+@endsection
+
+@section('script')
+<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SuratmasukStoreRequest extends FormRequest
+class SuratkeluarStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,14 +21,14 @@ class SuratmasukStoreRequest extends FormRequest
      *
      * @return array
      */
-   public function rules()
+    public function rules()
     {
         return [
-            'nomor_surat' => 'bail|required|unique:surat_masuks|max:50',
-            'unit_kerja' => 'required|max:50',
+            'nomor_surat' => 'bail|required|unique:surat_keluar|max:50',
+            'instansi' => 'required|max:50',
             'perihal' => 'required|max:100',
+            'instansi_tujuan' => 'required|max:50',
             'tanggal_surat' => 'required',
-            'tanggal_diterima' => 'required',
             'lampiran' => 'required|max:2500'
         ];
     }

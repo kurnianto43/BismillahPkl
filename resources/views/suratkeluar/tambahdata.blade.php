@@ -1,70 +1,128 @@
-@extends('layouts.master')
+@extends('layouts.master2')
+
+@section('title')
+Tambah Data Surat Keluar
+@endsection
 
 @section('content')
-<div class="animated fadeIn">
+    <section class="content-header">
+      <h1>
+        Tambah Data Surat Keluar
+
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{{ route('suratkeluar.index') }}"><i class="fa fa-envelope-open"></i> Surat Keluar</a></li>
+        <li class="active">Tambah Data Surat Keluar</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+<div class="col-md-8 col-md-offset-1">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Form tambah data</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" action="{{ route('suratkeluar.store') }}" method="POST" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="box-body">
+
+                <div class="form-group {{ $errors->has('nomor_surat') ? ' has-error' : '' }}">
+                  <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="nomor_surat" value="{{ old('nomor_surat') }}" id="nomor_surat">
+
+                            @if ($errors->has('nomor_surat'))      
+                                    <span class="help-block">{{ $errors->first('nomor_surat') }}</span>
+                            @endif
+
+                  </div>
+                </div>
 
 
-                <div class="row">
-                    <div class="col-lg-8 offset-2">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Tambah Surat Keluar</strong>
-                            </div>
-                            <div class="card-body">
-                                <!-- Credit Card -->
-                                <div id="pay-invoice">
-                                    <div class="card-body">
-                                        <form action="#" method="post" novalidate="novalidate">
-                                            <div class="form-group">
-                                                <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                                                <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
-                                            </div>
-                                            <div class="form-group has-success">
-                                                <label for="cc-name" class="control-label mb-1">Name on card</label>
-                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name">
-                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="cc-number" class="control-label mb-1">Card number</label>
-                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1">Security code</label>
-                                                    <div class="input-group">
-                                                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
-                                                        <div class="input-group-addon">
-                                                            <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="Security Code"
-                                                            data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>"
-                                                            data-trigger="hover"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <a class="btn btn-primary" href="#">Simpan</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                <div class="form-group {{ $errors->has('instansi') ? ' has-error' : '' }}">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="instansi" value="{{ old('instansi') }}" class="form-control" id="inputPassword3">
 
-                            </div>
-                        </div> <!-- .card -->
+                            @if ($errors->has('instansi'))      
+                                    <span class="help-block">{{ $errors->first('instansi') }}</span>
+                            @endif
 
-                    </div><!--/.col-->
+                    </div>
+                </div>
 
-                    
+
+                <div class="form-group {{ $errors->has('perihal') ? ' has-error' : '' }}">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Perihal</label>
+                  <div class="col-sm-9">
+                    <textarea rows="3" cols="80" name="perihal" class="form-control">{{ old('perihal') }}</textarea>
+
+                            @if ($errors->has('perihal'))      
+                                    <span class="help-block">{{ $errors->first('perihal') }}</span>
+                            @endif
+
+                  </div>
+                </div>
+
+
+                 <div class="form-group {{ $errors->has('instansi_tujuan') ? ' has-error' : '' }}">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi Tujuan</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="instansi_tujuan" value="{{ old('instansi_tujuan') }}" class="form-control" id="inputPassword3">
+
+                            @if ($errors->has('instansi_tujuan'))      
+                                    <span class="help-block">{{ $errors->first('instansi_tujuan') }}</span>
+                            @endif
+
+                    </div>
+                </div>
+
+
+                <div class="form-group {{ $errors->has('tanggal_surat') ? ' has-error' : '' }}">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Surat</label>
+                  <div class="col-sm-9">
+                    <input type="date" name="tanggal_surat" value="{{ old('tanggal_surat') }}" class="form-control" id="inputPassword3">
+
+                            @if ($errors->has('tanggal_surat'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_surat') }}</span>
+                            @endif
+
+                  </div>
+                </div>
+
+
+                <div class="form-group {{ $errors->has('lampiran') ? ' has-error' : '' }}">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
+                  <div class="col-sm-9">
+                    <input type="file" name="lampiran" placeholder="Masukan file" value="{{ old('lampiran') }}" class="form-control" id="inputPassword3">
+
+                             @if ($errors->has('lampiran'))      
+                                    <span class="help-block">{{ $errors->first('lampiran') }}</span>
+                            @endif
+
+                    <p>** Ukuran maksimal 2Mb</p>
+                  </div>
+                </div>
+
 
             </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+               <a href="{{ route('suratkeluar.index') }}" class="btn btn-default">Batal</a>
+                <button type="submit" class="btn btn-info pull-right">Simpan</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+            </section>
+          </div>
+@endsection
 
-
-        </div><!-- .animated -->
+@section('script')
+<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 @endsection

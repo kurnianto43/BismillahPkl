@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Suratmasuk;
+use App\SuratMasuk;
+use App\SuratKeluar;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $suratmasukCount = Suratmasuk::count();
-        return view('home.beranda', compact('suratmasukCount'));
+        $suratmasukCount = SuratMasuk::count();
+        $suratkeluarCount = SuratKeluar::count();
+        return view('home.beranda', compact('suratmasukCount', 'suratkeluarCount'));
+    }
+
+    public function setting()
+    {
+        return view('users.sementara');
     }
 }

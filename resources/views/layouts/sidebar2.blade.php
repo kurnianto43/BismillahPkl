@@ -48,8 +48,8 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Data Surat Keluar</a></li>
-            <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Tambah Data Surat Keluar</a></li>
+            <li><a href="{{ route('suratkeluar.index') }}"><i class="fa fa-circle-o"></i> Data Surat Keluar</a></li>
+            <li><a href="{{ route('suratkeluar.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Surat Keluar</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -60,8 +60,8 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Akun</a></li>
-            <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Lain-lain</a></li>
+            <li><a href="{{ route('user.create') }}"><i class="fa fa-circle-o"></i> Akun</a></li>
+            <li><a href="{{ route('home.set') }}"><i class="fa fa-circle-o"></i> Lain-lain</a></li>
           </ul>
         </li>
       </ul>
