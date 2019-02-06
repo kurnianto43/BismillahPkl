@@ -49,21 +49,21 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nomor Surat</th>
-                                            <th>Instansi</th>
+                                            <th>Unit Kerja</th>
                                             <th>Perihal</th>
-                                            <th>Instansi Tujuan</th>
                                             <th>Tanggal Surat</th>
+                                            <th>Tanggal Diterima</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         @foreach($suratkeluars as $suratkeluar)
+                                         @foreach($suratmasuks as $suratmasuk)
                                         <tr>
-                                            <td>{{ $suratkeluar->id }}</td>
-                                            <td>{{ $suratkeluar->nomor_surat }}</td>
-                                            <td>{{ $suratkeluar->instansi }}</td>
-                                            <td>{{ $suratkeluar->perihal }}</td>
-                                            <td>{{ $suratkeluar->instansi_tujuan }}</td>
-                                            <td>{{ $suratkeluar->tanggal_surat }}</td>
+                                            <td>{{ $suratmasuk->id }}</td>
+                                            <td>{{ $suratmasuk->nomor_surat }}</td>
+                                            <td>{{ $suratmasuk->unit_kerja }}</td>
+                                            <td>{{ $suratmasuk->perihal }}</td>
+                                            <td>{{ $suratmasuk->tanggal_surat }}</td>
+                                            <td>{{ $suratmasuk->tanggal_diterima }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -9,10 +9,10 @@ Data surat keluar
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Surat keluar
+        Data surat keluar
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="{{ route('suratkeluar.index') }}"><i class="fa fa-envelope-open"></i> Surat keluar</a></li>
+        <li class="active"><a href=""><i class="fa fa-envelope-open"></i> surat keluar</a></li>
       </ol>
     </section>
 
@@ -25,7 +25,7 @@ Data surat keluar
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel data surat keluar</h3>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdf') }}"><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href=""><i class="fa fa-print"></i></a>
               <a class="btn btn-primary pull-right" href="{{ route('suratkeluar.create') }}"><i class="fa fa-plus"></i></a>
             </div>
             
@@ -36,10 +36,10 @@ Data surat keluar
                 <tr>
                   <th>No</th>
                   <th>Nomor Surat</th>
-                  <th>Instansi</th>
+                  <th>Unit Kerja</th>
                   <th>Perihal</th>
-                  <th>Instansi Tujuan</th>
                   <th>Tanggal Surat</th>
+                  <th>Tanggal Diterima</th>
                   <th width="81">Aksi</th>
 
                 </tr>
@@ -49,16 +49,16 @@ Data surat keluar
                     <tr>
                       <td>{{ $suratkeluar -> id  }}</td>
                       <td>{{ $suratkeluar -> nomor_surat }}</td>
-                      <td>{{ $suratkeluar -> instansi }}</td>
+                      <td>{{ $suratkeluar -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratkeluar -> perihal }}</td>
-                      <td>{{ $suratkeluar -> instansi_tujuan }}</td>
                       <td>{{ $suratkeluar -> tanggal_surat }}</td>
+                      <td>{{ $suratkeluar -> tanggal_diterima }}</td>
       
                       <td>
-                        <a class="btn btn-warning btn-sm" href="{{ route('suratkeluar.edit', $suratkeluar) }}"><i class="fa fa-edit"></i></a>
-                        <a  class="btn btn-info btn-sm" href="{{ route('suratkeluar.detail', $suratkeluar) }}"><i class="fa fa-info-circle"></i></a>
+                        <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
+                        <a  class="btn btn-info btn-sm" href=""><i class="fa fa-info-circle"></i></a>
                         <div class="pull-right">
-                          <form action="{{ route('suratkeluar.destroy', $suratkeluar) }}" method="POST">
+                          <form action="" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i></button>
