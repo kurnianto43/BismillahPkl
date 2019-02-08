@@ -11,15 +11,15 @@ Tambah Data Surat Keluar
 
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ route('suratkeluar.index') }}"><i class="fa fa-envelope-open"></i> Surat Keluar</a></li>
-        <li class="active">Tambah Data Surat Keluar</li>
+        <li><a href=""><i class="fa fa-envelope-open"></i> Surat Keluar</a></li>
+        <li class="active">Tambah Data Surat Masuk</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-<div class="col-md-8 col-md-offset-1">
+<div class="col-md-8 col-md-offset-2">
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -44,13 +44,18 @@ Tambah Data Surat Keluar
                 </div>
 
 
-                <div class="form-group {{ $errors->has('instansi') ? ' has-error' : '' }}">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi</label>
+                <div class="form-group {{ $errors->has('instansi_id') ? ' has-error' : '' }}">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
                     <div class="col-sm-9">
-                        <input type="text" name="instansi" value="{{ old('instansi') }}" class="form-control" id="inputPassword3">
+                        <select name="instansi_id" id="" class="form-control">
+                          @foreach ($instansis as $instansi)
+                            <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                          @endforeach
+                          
+                        </select>
 
-                            @if ($errors->has('instansi'))      
-                                    <span class="help-block">{{ $errors->first('instansi') }}</span>
+                            @if ($errors->has('instansi_id'))      
+                                    <span class="help-block">{{ $errors->first('instansi_id') }}</span>
                             @endif
 
                     </div>
@@ -70,19 +75,6 @@ Tambah Data Surat Keluar
                 </div>
 
 
-                 <div class="form-group {{ $errors->has('instansi_tujuan') ? ' has-error' : '' }}">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi Tujuan</label>
-                    <div class="col-sm-9">
-                        <input type="text" name="instansi_tujuan" value="{{ old('instansi_tujuan') }}" class="form-control" id="inputPassword3">
-
-                            @if ($errors->has('instansi_tujuan'))      
-                                    <span class="help-block">{{ $errors->first('instansi_tujuan') }}</span>
-                            @endif
-
-                    </div>
-                </div>
-
-
                 <div class="form-group {{ $errors->has('tanggal_surat') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Surat</label>
                   <div class="col-sm-9">
@@ -96,10 +88,22 @@ Tambah Data Surat Keluar
                 </div>
 
 
+                <div class="form-group {{ $errors->has('tanggal_kirim') ? ' has-error' : '' }}">
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
+                  <div class="col-sm-9">
+                    <input type="date" name="tanggal_kirim" value="{{ old('tanggal_kirim') }}" class="form-control" id="inputPassword3">
+
+                            @if ($errors->has('tanggal_kirim'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_kirim') }}</span>
+                            @endif
+                  </div>
+                </div>
+
+
                 <div class="form-group {{ $errors->has('lampiran') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
                   <div class="col-sm-9">
-                    <input type="file" name="lampiran" placeholder="Masukan file" value="{{ old('lampiran') }}" class="form-control" id="inputPassword3">
+                    <input type="text" name="lampiran" placeholder="" value="{{ old('lampiran') }}" class="form-control" id="inputPassword3">
 
                              @if ($errors->has('lampiran'))      
                                     <span class="help-block">{{ $errors->first('lampiran') }}</span>
