@@ -36,6 +36,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::patch('/surat-masuk/{suratmasuk}/ubah-data', 'SuratMasukController@update')->name('suratmasuk.update');
     Route::delete('/surat-masuk/{suratmasuk}/hapus', 'SuratMasukController@destroy')->name('suratmasuk.destroy');
     Route::get('/surat-masuk-pdf', 'SuratMasukController@pdf')->name('suratmasuk.pdf');
+
     Route::get('/disposisi' , 'DisposisiController@index')->name('disposisi.index');
     Route::get('/disposisi/tambah-data' , 'DisposisiController@create')->name('disposisi.create');
     Route::post('/disposisi/tambah-data' , 'DisposisiController@store')->name('disposisi.store');
@@ -53,5 +54,10 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/surat-keluar', 'SuratKeluarController@index')->name('suratkeluar.index');
     Route::get('/surat-keluar/tambah-data', 'SuratKeluarController@create')->name('suratkeluar.create');
     Route::post('/surat-keluar/tambah-data', 'SuratKeluarController@store')->name('suratkeluar.store');
+    Route::get('/surat-keluar/rincian/{suratkeluar}', 'SuratKeluarController@details')->name('suratkeluar.detail');
+    Route::get('/{suratkeluar}/lihat/download', 'SuratKeluarController@response')->name('suratkeluar.response');
+    Route::get('/surat-keluar/{suratkeluar}/ubah-data', 'SuratKeluarController@edit')->name('suratkeluar.edit');
+    Route::patch('/surat-keluar/{suratkeluar}/ubah-data', 'SuratKeluarController@update')->name('suratkeluar.update');
+    Route::delete('/surat-keluar/{suratkeluar}/hapus', 'SuratKeluarController@destroy')->name('suratkeluar.destroy');
      
 });

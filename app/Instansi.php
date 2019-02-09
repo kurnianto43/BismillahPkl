@@ -10,6 +10,11 @@ class Instansi extends Model
 
     public function suratkeluar()
     {
-    	return $this->belongsTo('App\SuratKeluar');
+    	return $this->hasMany('App\SuratKeluar');
+    }
+
+    public function suratmasuk()
+    {
+        return $this->hasMany('App\SuratMasuk');
     }
 }

@@ -25,7 +25,7 @@ class SuratmasukStoreRequest extends FormRequest
     {
         return [
             'nomor_surat' => 'bail|required|unique:surat_masuks|max:50',
-            'unit_kerja' => 'required|max:50',
+            'instansi_id' => 'required',
             'perihal' => 'required|max:100',
             'tanggal_surat' => 'required',
             'tanggal_diterima' => 'required',

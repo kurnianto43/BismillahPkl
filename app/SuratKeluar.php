@@ -13,6 +13,6 @@ class SuratKeluar extends Model
 
     public function instansi()
     {
-    	return $this->hasMany('App\Instansi');
+    	return $this->belongsTo('App\Instansi');
     }
 }

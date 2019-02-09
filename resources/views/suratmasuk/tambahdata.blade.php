@@ -44,13 +44,18 @@ Tambah Data Surat Masuk
                 </div>
 
 
-                <div class="form-group {{ $errors->has('unit_kerja') ? ' has-error' : '' }}">
+                <div class="form-group {{ $errors->has('instansi_id') ? ' has-error' : '' }}">
                     <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
                     <div class="col-sm-9">
-                        <input type="text" name="unit_kerja" value="{{ old('unit_kerja') }}" class="form-control" id="inputPassword3">
+                        <select name="instansi_id" id="" class="form-control">
+                          @foreach ($instansis as $instansi)
+                            <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                          @endforeach
+                          
+                        </select>
 
-                            @if ($errors->has('unit_kerja'))      
-                                    <span class="help-block">{{ $errors->first('unit_kerja') }}</span>
+                            @if ($errors->has('instansi_id'))      
+                                    <span class="help-block">{{ $errors->first('instansi_id') }}</span>
                             @endif
 
                     </div>

@@ -39,7 +39,7 @@ Data surat keluar
                   <th>Unit Kerja</th>
                   <th>Perihal</th>
                   <th>Tanggal Surat</th>
-                  <th>Tanggal Diterima</th>
+                  <th>Tanggal Dikirim</th>
                   <th width="81">Aksi</th>
 
                 </tr>
@@ -52,13 +52,13 @@ Data surat keluar
                       <td>{{ $suratkeluar -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratkeluar -> perihal }}</td>
                       <td>{{ $suratkeluar -> tanggal_surat }}</td>
-                      <td>{{ $suratkeluar -> tanggal_diterima }}</td>
+                      <td>{{ $suratkeluar -> tanggal_kirim }}</td>
       
                       <td>
-                        <a class="btn btn-warning btn-sm" href=""><i class="fa fa-edit"></i></a>
-                        <a  class="btn btn-info btn-sm" href=""><i class="fa fa-info-circle"></i></a>
+                        <a class="btn btn-warning btn-sm" href="{{ route('suratkeluar.edit', $suratkeluar) }}"><i class="fa fa-edit"></i></a>
+                        <a  class="btn btn-info btn-sm" href="{{ route('suratkeluar.detail', $suratkeluar) }}"><i class="fa fa-info-circle"></i></a>
                         <div class="pull-right">
-                          <form action="" method="POST">
+                          <form action="{{ route('suratkeluar.destroy', $suratkeluar) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i></button>

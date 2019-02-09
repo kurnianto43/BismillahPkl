@@ -25,7 +25,7 @@ class SuratkeluarStoreRequest extends FormRequest
     {
         return [
             'nomor_surat' => 'bail|required|unique:surat_keluar|max:50',
-            'instansi' => 'required|max:50',
+            'instansi_id' => 'required|max:50',
             'perihal' => 'required|max:100',
             'instansi_tujuan' => 'required|max:50',
             'tanggal_surat' => 'required',

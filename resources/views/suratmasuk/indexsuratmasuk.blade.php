@@ -49,7 +49,7 @@ Data surat masuk
                     <tr>
                       <td>{{ $suratmasuk -> id  }}</td>
                       <td>{{ $suratmasuk -> nomor_surat }}</td>
-                      <td>{{ $suratmasuk -> unit_kerja }}</td>
+                      <td>{{ $suratmasuk -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratmasuk -> perihal }}</td>
                       <td>{{ $suratmasuk -> tanggal_surat }}</td>
                       <td>{{ $suratmasuk -> tanggal_diterima }}</td>

@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratMasuk extends Model
 {
- 	protected $fillable =['nomor_surat', 'unit_kerja', 'perihal', 'tanggal_surat', 'tanggal_diterima', 'lampiran'];
+ 	protected $guarded =[''];
 
  	public function disposisi()
     {
     	return $this->belongsTo('App\Disposisi');
     }
+
+    public function instansi()
+    {
+        return $this->belongsTo('App\Instansi');
+    }
+
 }

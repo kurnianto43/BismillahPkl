@@ -8,6 +8,7 @@ use App\SuratMasuk;
 use PDF;
 use Storage;
 use Illuminate\Validation\Rule;
+use App\Instansi;
 
 class SuratMasukController extends Controller
 {
@@ -22,10 +23,11 @@ class SuratMasukController extends Controller
 
 
 
-    public function create(Suratmasuk $suratmasuk)
+    public function create()
     {
+        $instansis = Instansi::all();
 
-    	return view('suratmasuk.tambahdata', compact('suratmasuk'));
+    	return view('suratmasuk.tambahdata', compact('instansis'));
     }
 
 
@@ -39,7 +41,7 @@ class SuratMasukController extends Controller
 
         SuratMasuk::create([
             'nomor_surat' => request('nomor_surat'),
-            'unit_kerja' => request('unit_kerja'),
+            'instansi_id' => request('instansi_id'),
             'perihal' => request('perihal'),
             'tanggal_surat' => request('tanggal_surat'),
             'tanggal_diterima' => request('tanggal_diterima'),
@@ -77,7 +79,7 @@ class SuratMasukController extends Controller
         $this->validate(request(), [
             'nomor_surat' => Rule::unique('surat_masuks', 'nomor_surat')->ignore($suratmasuk->id),
             'nomor_surat' => 'required|max:50',
-            'unit_kerja' => 'required|max:50',
+            'instansi_id' => 'required|max:50',
             'perihal' => 'required|max:100',
             'tanggal_surat' => 'required',
             'tanggal_diterima' => 'required',
@@ -86,7 +88,7 @@ class SuratMasukController extends Controller
 
         $suratmasuk->update([
             'nomor_surat' => request('nomor_surat'),
-            'unit_kerja' => request('unit_kerja'),
+            'instansi_id' => request('instansi_id'),
             'perihal' => request('perihal'),
             'tanggal_surat' => request('tanggal_surat'),
             'tanggal_diterima' => request('tanggal_diterima'),

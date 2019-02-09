@@ -60,7 +60,7 @@ Tambah Data Instansi
                 <div class="form-group {{ $errors->has('no_telp') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Nomor Telepon</label>
                   <div class="col-sm-9">
-                    <input type="text" name="no_telp" placeholder="Masukan file" value="{{ old('no_telp') }}" class="form-control" id="inputPassword3">
+                    <input type="text" name="no_telp" value="{{ old('no_telp') }}" class="form-control" id="inputPassword3">
 
                              @if ($errors->has('no_telp'))      
                                     <span class="help-block">{{ $errors->first('no_telp') }}</span>

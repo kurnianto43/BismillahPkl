@@ -32,7 +32,7 @@ Tambah Data Surat Masuk
               <div class="box-body">
 
                 <div class="form-group {{ $errors->has('surat_masuk_id') ? ' has-error' : '' }}">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat Masuk</label>
                   <div class="col-sm-9">
                     <select name="surat_masuk_id" class="form-control">
                       @foreach($suratmasuks as $suratmasuk)
@@ -50,9 +50,9 @@ Tambah Data Surat Masuk
 
 
                 <div class="form-group {{ $errors->has('surat_masuk_id') ? ' has-error' : '' }}">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">Isi Disposisi</label>
                     <div class="col-sm-9">
-                        <textarea name="isi_disposisi" class="form-control" id="" cols="30" rows="10"></textarea>
+                        <textarea name="isi_disposisi" class="form-control" id="" cols="30" rows="4"></textarea>
 
                             @if ($errors->has('surat_masuk_id'))      
                                     <span class="help-block">{{ $errors->first('surat_masuk_id') }}</span>
@@ -60,11 +60,6 @@ Tambah Data Surat Masuk
 
                     </div>
                 </div>
-
-
-                 
-               
-
 
             </div>
               <!-- /.box-body -->
