@@ -25,7 +25,9 @@ Data surat keluar
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel data surat keluar</h3>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href=""><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdf') }}"><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.day') }}"> Harian</a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.month') }}"> Bulanan</a>
               <a class="btn btn-primary pull-right" href="{{ route('suratkeluar.create') }}"><i class="fa fa-plus"></i></a>
             </div>
             
@@ -45,13 +47,15 @@ Data surat keluar
                 </tr>
                 </thead>
                 <tbody>
-                @foreach( $suratkeluars as $suratkeluar )
+                <?php $no = 0;?>
+                    @foreach($suratkeluars as $suratkeluar)
+                <?php $no++ ;?>
                     <tr>
-                      <td>{{ $suratkeluar -> id  }}</td>
+                      <td>{{ $no  }}</td>
                       <td>{{ $suratkeluar -> nomor_surat }}</td>
                       <td>{{ $suratkeluar -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratkeluar -> perihal }}</td>
-                      <td>{{ $suratkeluar -> tanggal_surat }}</td>
+                      <td>{{ \Carbon\Carbon::parse($suratkeluar -> tanggal_surat)->format('d/m/Y')}}</td>
                       <td>{{ $suratkeluar -> tanggal_kirim }}</td>
       
                       <td>

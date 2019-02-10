@@ -33,4 +33,21 @@ class SuratmasukStoreRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'nomor_surat.required' => 'Nomor surat diperlukan',
+            'nomor_surat.unique' => 'Nomor surat telah terdata',
+            'nomor_surat.xax' => 'Nomor surat maksismal 50 karakter',
+            'instansi_id.required'  => 'Instansi diperlukan',
+            'perihal.required' => 'Perihal diperlukan',
+            'perihal.max' => 'Perihal maksimal 100 karakter',
+            'tanggal_surat.required' => 'Tanggal surat diperlukan',
+            'tanggal_diterima.required' => 'Tanggal diterima diperlukan',
+            'lampiran.required' => 'Lampiran diperlukan',
+            'lampiran.max' => 'Ukuran maksimal 2Mb',
+
+        ];
+    }
+
 }

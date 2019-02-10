@@ -42,46 +42,72 @@ Ubah Data Surat Masuk
                   </div>
                 </div>
 
-                <div class="form-group {{ $errors->has('unit_kerja') ? ' has-error' : '' }}">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                <div class="form-group {{ $errors->has('instansi_id') ? ' has-error' : '' }}">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi</label>
+                    <div class="col-sm-9">
+                        <select name="instansi_id" id="" class="form-control">
+                            <option value="" disabled selected>Pilih instansi</option>
+                          @foreach ($instansis as $instansi)
+                            <option 
+                                      value="{{ $instansi -> id }}"
+                                          @if  ( $instansi->id === $suratmasuk->instansi_id )
+                                              selected
+                                          @endif
+                                  >
+                                  {{ $instansi -> nama_instansi }}
+                                  </option>
+                          @endforeach
+                          
+                        </select>
 
-                  <div class="col-sm-9">
-                    <input type="text" name="unit_kerja" class="form-control" value="{{ $suratmasuk -> unit_kerja }}" id="inputPassword3">
-                    @if ($errors->has('unit_kerja'))      
-                                    <span class="help-block">{{ $errors->first('unit_kerja') }}</span>
+                            @if ($errors->has('instansi_id'))      
+                                    <span class="help-block">{{ $errors->first('instansi_id') }}</span>
                             @endif
-                  </div>
-                  </div>
 
-                <div class="form-group">
+                    </div>
+                </div>
+
+                <div class="form-group {{ $errors->has('perihal') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Perihal</label>
 
                   <div class="col-sm-9">
                   <textarea rows="3" cols="80" name="perihal"  class="form-control"> {{ $suratmasuk -> perihal }} </textarea>
+                        @if ($errors->has('perihal'))      
+                                    <span class="help-block">{{ $errors->first('perihal') }}</span>
+                        @endif
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('tanggal_surat') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Surat</label>
 
                   <div class="col-sm-9">
                     <input type="date" name="tanggal_surat" value="{{ $suratmasuk -> tanggal_surat }}" class="form-control" id="inputPassword3">
+                        @if ($errors->has('tanggal_surat'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_surat') }}</span>
+                        @endif
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('tanggal_diterima') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
 
                   <div class="col-sm-9">
                     <input type="date" name="tanggal_diterima" value="{{ $suratmasuk -> tanggal_diterima }}" class="form-control" id="inputPassword3">
+                        @if ($errors->has('tanggal_diterima'))      
+                                    <span class="help-block">{{ $errors->first('tanggal_diterima') }}</span>
+                        @endif
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {{ $errors->has('lampiran') ? ' has-error' : '' }}">
                   <label for="inputPassword3" class="col-sm-3 control-label">Lampiran</label>
 
                   <div class="col-sm-9">
                     <input type="file" name="lampiran" value="{{ $suratmasuk -> lampiran }}" class="form-control" id="inputPassword3">
+                        @if ($errors->has('lampiran'))      
+                                    <span class="help-block">{{ $errors->first('lampiran') }}</span>
+                        @endif
                     <p>** Ukuran maksimal 2Mb</p>
                   </div>
                 </div>

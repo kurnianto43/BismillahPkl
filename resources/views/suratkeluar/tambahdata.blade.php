@@ -45,9 +45,10 @@ Tambah Data Surat Keluar
 
 
                 <div class="form-group {{ $errors->has('instansi_id') ? ' has-error' : '' }}">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi</label>
                     <div class="col-sm-9">
                         <select name="instansi_id" id="" class="form-control">
+                          <option value="" disabled selected>Pilih instansi</option>
                           @foreach ($instansis as $instansi)
                             <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
                           @endforeach
@@ -89,7 +90,7 @@ Tambah Data Surat Keluar
 
 
                 <div class="form-group {{ $errors->has('tanggal_kirim') ? ' has-error' : '' }}">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Dikirim</label>
                   <div class="col-sm-9">
                     <input type="date" name="tanggal_kirim" value="{{ old('tanggal_kirim') }}" class="form-control" id="inputPassword3">
 

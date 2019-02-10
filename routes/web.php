@@ -28,6 +28,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/tambah-user', 'UserController@create')->name('user.create');
 
     Route::get('/data-surat-masuk', 'SuratMasukController@index')->name('suratmasuk.index');
+    Route::get('/surat-masuk/day', 'SuratMasukController@day')->name('suratmasuk.day');
+    Route::get('/surat-masuk/month', 'SuratMasukController@month')->name('suratmasuk.month');
     Route::get('/surat-masuk/tambah-data', 'SuratMasukController@create')->name('suratmasuk.create');
     Route::post('/surat-masuk/tambah-data', 'SuratMasukController@store')->name('suratmasuk.store');
     Route::get('/surat-masuk/rincian/{suratmasuk}', 'SuratMasukController@details')->name('suratmasuk.detail');
@@ -36,6 +38,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::patch('/surat-masuk/{suratmasuk}/ubah-data', 'SuratMasukController@update')->name('suratmasuk.update');
     Route::delete('/surat-masuk/{suratmasuk}/hapus', 'SuratMasukController@destroy')->name('suratmasuk.destroy');
     Route::get('/surat-masuk-pdf', 'SuratMasukController@pdf')->name('suratmasuk.pdf');
+    Route::get('/surat-masuk-pdf/bulanan', 'SuratMasukController@pdfmonth')->name('suratmasuk.pdfmonth');
+    Route::get('/surat-masuk-pdf/harian', 'SuratMasukController@pdfday')->name('suratmasuk.pdfday');
 
     Route::get('/disposisi' , 'DisposisiController@index')->name('disposisi.index');
     Route::get('/disposisi/tambah-data' , 'DisposisiController@create')->name('disposisi.create');
@@ -52,6 +56,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::delete('/hapus-data/instansi/{instansi}', 'InstansiController@destroy')->name('instansi.destroy');
 
     Route::get('/surat-keluar', 'SuratKeluarController@index')->name('suratkeluar.index');
+    Route::get('/surat-keluar/day', 'SuratKeluarController@day')->name('suratkeluar.day');
+    Route::get('/surat-keluar/month', 'SuratKeluarController@month')->name('suratkeluar.month');
     Route::get('/surat-keluar/tambah-data', 'SuratKeluarController@create')->name('suratkeluar.create');
     Route::post('/surat-keluar/tambah-data', 'SuratKeluarController@store')->name('suratkeluar.store');
     Route::get('/surat-keluar/rincian/{suratkeluar}', 'SuratKeluarController@details')->name('suratkeluar.detail');
@@ -59,5 +65,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/surat-keluar/{suratkeluar}/ubah-data', 'SuratKeluarController@edit')->name('suratkeluar.edit');
     Route::patch('/surat-keluar/{suratkeluar}/ubah-data', 'SuratKeluarController@update')->name('suratkeluar.update');
     Route::delete('/surat-keluar/{suratkeluar}/hapus', 'SuratKeluarController@destroy')->name('suratkeluar.destroy');
-     
+    Route::get('/surat-keluar-pdf', 'SuratKeluarController@pdf')->name('suratkeluar.pdf');
+    Route::get('/surat-keluar-pdf/bulanan', 'SuratKeluarController@pdfmonth')->name('suratkeluar.pdfmonth');
+    Route::get('/surat-keluar-pdf/harian', 'SuratKeluarController@pdfday')->name('suratkeluar.pdfday');   
 });

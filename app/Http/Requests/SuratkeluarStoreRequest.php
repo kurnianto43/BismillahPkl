@@ -29,7 +29,18 @@ class SuratkeluarStoreRequest extends FormRequest
             'perihal' => 'required|max:100',
             'instansi_tujuan' => 'required|max:50',
             'tanggal_surat' => 'required',
+            'tanggal_kirim' => 'required',
             'lampiran' => 'required|max:2500'
+        ];
+
+    }
+
+    public function messages()
+    {
+        return [
+            'nomor_surat.required' => 'Nomor surat diperlukan',
+            'instansi_id.required'  => 'Instansi diperlukan',
+            'tanggal_kirim.required' => 'Tanggal dikirim diperlukan', 
         ];
     }
 

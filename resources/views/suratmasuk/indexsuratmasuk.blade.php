@@ -26,6 +26,8 @@ Data surat masuk
             <div class="box-header">
               <h3 class="box-title">Tabel data surat masuk</h3>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.pdf') }}"><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.day') }}">Harian</a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.month') }}">Bulanan</a>
               <a class="btn btn-primary pull-right" href="{{ route('suratmasuk.create') }}"><i class="fa fa-plus"></i></a>
             </div>
             
@@ -36,7 +38,7 @@ Data surat masuk
                 <tr>
                   <th>No</th>
                   <th>Nomor Surat</th>
-                  <th>Unit Kerja</th>
+                  <th>Instansi</th>
                   <th>Perihal</th>
                   <th>Tanggal Surat</th>
                   <th>Tanggal Diterima</th>
@@ -45,14 +47,16 @@ Data surat masuk
                 </tr>
                 </thead>
                 <tbody>
+                <?php $no = 0;?>
                 @foreach( $suratmasuks as $suratmasuk )
+                <?php $no++ ;?>
                     <tr>
-                      <td>{{ $suratmasuk -> id  }}</td>
+                      <td>{{ $no  }}</td>
                       <td>{{ $suratmasuk -> nomor_surat }}</td>
                       <td>{{ $suratmasuk -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratmasuk -> perihal }}</td>
-                      <td>{{ $suratmasuk -> tanggal_surat }}</td>
-                      <td>{{ $suratmasuk -> tanggal_diterima }}</td>
+                      <td>{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_surat)->format('d/m/Y')}}</td>
+                      <td>{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_diterima)->format('d/m/Y')}}</td>
       
                       <td>
                         <a class="btn btn-warning btn-sm" href="{{ route('suratmasuk.edit', $suratmasuk) }}"><i class="fa fa-edit"></i></a>

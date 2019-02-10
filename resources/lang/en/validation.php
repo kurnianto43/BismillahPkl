@@ -77,7 +77,7 @@ return [
     ],
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
-        'file' => ':attribute tidak boleh lebih dari :max Kilobite.',
+        'file' => ':attribute ukuran maksimal :max Kilobite.',
         'string' => ':attribute tidak boleh lebih dari :max karakter.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
@@ -94,7 +94,7 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => ':attribute harus diisi.',
+    'required' => ':attribute diperlukan',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -144,6 +144,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'nomor_surat' => 'Nomor surat',
+        'instansi_id' => 'Instansi',
+        'perihal' => 'Perihal',
+        'tanggal_surat' => 'Tanggal surat', 
+        'tanggal_diterima' => 'Tanggal diterima',
+        'lampiran' => 'Lampiran',
+        'tanggal_kirim' => 'Tanggal dikirim'
+    ],
 
 ];

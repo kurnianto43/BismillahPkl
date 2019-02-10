@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UPT Pajak Daerah - Laporan Surat Masuk</title>
+    <title>UPT Pajak Daerah - Laporan Surat Keluar</title>
     
       <style>
         body 
@@ -39,7 +39,7 @@
         </table>
         <hr>
 
-    <h3 style="text-align: center;">Laporan Surat Masuk</h3>
+    <h3 style="text-align: center;">Laporan Surat Keluar</h3>
     <div id="isi">
         <table align="center" style="border : 1px solid black;
                                 border-collapse: collapse;
@@ -86,12 +86,12 @@
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >Tanggal Diterima</th>
+                        >Tanggal Dikirim</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $no = 0;?>
-                @foreach($suratmasuks as $suratmasuk)
+                @foreach($suratkeluars as $suratkeluars)
                 <?php $no++ ;?>
                 <tr>
                     <td style="border : 1px solid black;
@@ -105,31 +105,31 @@
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >{{ $suratmasuk->nomor_surat }}</td>
+                        >{{ $suratkeluars->nomor_surat }}</td>
                     <td style="border : 1px solid black;
                                 border-collapse: collapse;
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >{{ $suratmasuk->instansi->nama_instansi }}</td>
+                        >{{ $suratkeluars->instansi->nama_instansi }}</td>
                     <td style="border : 1px solid black;
                                 border-collapse: collapse;
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >{{ $suratmasuk->perihal }}</td>
+                        >{{ $suratkeluars->perihal }}</td>
                     <td style="border : 1px solid black;
                                 border-collapse: collapse;
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_surat)->format('d/m/Y')}}</td>
+                        >{{ \Carbon\Carbon::parse($suratkeluars -> tanggal_surat)->format('d/m/Y')}}</td>
                     <td style="border : 1px solid black;
                                 border-collapse: collapse;
                                 opacity: 0.95;
                                 padding: 10px;
                                 text-align: center;"
-                        >{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_diterima)->format('d/m/Y')}}</td>
+                        >{{ \Carbon\Carbon::parse($suratkeluars -> tanggal_dikirim)->format('d/m/Y')}}</td>
                 </tr>
             @endforeach
             </tbody>

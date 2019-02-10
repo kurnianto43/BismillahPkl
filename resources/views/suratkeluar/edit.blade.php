@@ -46,7 +46,7 @@ Ubah Data Surat Keluar
 
 
                 <div class="form-group {{ $errors->has('instansi_id') ? ' has-error' : '' }}">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">Instansi</label>
                     <div class="col-sm-9">
                         <select name="instansi_id" id="" class="form-control">
                           @foreach ($instansis as $instansi)

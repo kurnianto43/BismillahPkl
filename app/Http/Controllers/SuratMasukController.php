@@ -9,6 +9,7 @@ use PDF;
 use Storage;
 use Illuminate\Validation\Rule;
 use App\Instansi;
+use Carbon\Carbon;
 
 class SuratMasukController extends Controller
 {
@@ -19,6 +20,25 @@ class SuratMasukController extends Controller
 
     	$suratmasuks = SuratMasuk::all();
     	return view('suratmasuk.indexsuratmasuk', compact('suratmasuks'));
+    }
+
+
+    public function day()
+    {
+        $dt = Carbon::now();
+
+        $data = SuratMasuk::whereDay('created_at', $dt->day)->get();
+        return view('suratmasuk.day', compact('data','dt'));
+    }
+
+    public function month()
+    {
+        Carbon::setLocale('id_ID.utf8');
+
+        $dt = Carbon::now();
+
+        $data = SuratMasuk::whereMonth('created_at', $dt->month)->get();
+        return view('suratmasuk.month', compact('data','dt'));
     }
 
 
@@ -70,7 +90,8 @@ class SuratMasukController extends Controller
 
     public function edit(Suratmasuk $suratmasuk)
     {
-        return view('suratmasuk.editsuratmasuk', compact('suratmasuk')); 
+        $instansis = Instansi::all();
+        return view('suratmasuk.editsuratmasuk', compact('suratmasuk', 'instansis')); 
     }
 
 
@@ -95,7 +116,7 @@ class SuratMasukController extends Controller
             'lampiran' => request()->file('lampiran')->store('lampiran_surat_masuk')
         ]);
 
-        return redirect()->route('suratmasuk.index')->with('warning', ' Data berhasil diubah');
+        return redirect()->route('suratmasuk.index')->with('success', ' Data berhasil diubah');
     }
 
 
@@ -104,7 +125,7 @@ class SuratMasukController extends Controller
     {
         $suratmasuk->delete();
 
-        return redirect()->route('suratmasuk.index')->with('danger', ' Data berhasil dihapus');
+        return redirect()->route('suratmasuk.index')->with('success', ' Data berhasil dihapus');
     }
 
 
@@ -114,6 +135,27 @@ class SuratMasukController extends Controller
         $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->download('suratmasuk.pdf', compact('suratmasuks'));
+    }
+
+    public function pdfmonth()
+    {
+        $dt = Carbon::now();
+
+        $suratmasuks = SuratMasuk::whereMonth('created_at', $dt->month)->get();
+        $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('suratmasuk-bulanan.pdf', compact('suratmasuks'));
+    }
+
+
+    public function pdfday()
+    {
+        $dt = Carbon::now();
+
+        $suratmasuks = SuratMasuk::whereDay('created_at', $dt->day)->get();
+        $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('suratmasuk-harian.pdf', compact('suratmasuks'));
     }
 
 }

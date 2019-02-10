@@ -30,16 +30,16 @@ Rincian Surat {{ $suratmasuk->nomor_surat }}
                   <b>Nomor Surat</b> <a class="pull-right">{{ $suratmasuk->nomor_surat }}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Unit Kerja</b> <a class="pull-right">{{ $suratmasuk->unit_kerja }}</a>
+                  <b>Unit Kerja</b> <a class="pull-right">{{ $suratmasuk->instansi->nama_instansi }}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Perihal</b> <a class="pull-right">{{ $suratmasuk->perihal}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Surat</b> <a class="pull-right">{{ $suratmasuk->tanggal_surat }}</a>
+                  <b>Tanggal Surat</b> <a class="pull-right">{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_surat)->format('d/m/Y')}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Diterima</b> <a class="pull-right">{{ $suratmasuk->tanggal_diterima }}</a>
+                  <b>Tanggal Diterima</b> <a class="pull-right">{{ \Carbon\Carbon::parse($suratmasuk -> tanggal_diterima)->format('d/m/Y')}}</a>
                 </li>
                  <li class="list-group-item">
                   <b>Lampiran</b> <a href="{{ route('suratmasuk.response', $suratmasuk) }}" target="_blank" class="pull-right">Lihat/download file</a>
