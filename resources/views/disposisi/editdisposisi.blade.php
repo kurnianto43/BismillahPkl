@@ -37,7 +37,7 @@ Ubah Data Surat Masuk
                     <div class="col-sm-9">
                       <select name="surat_masuk_id" class="form-control">
                         @foreach($suratmasuks as $suratmasuk)
-                        <option></option>
+                        <option value="" disabled selected>Pilih nomor surat</option>
                         <option 
                           value="{{$suratmasuk->id}}"
                             @if ($suratmasuk->id === $disposisi->surat_masuk_id)
@@ -56,7 +56,7 @@ Ubah Data Surat Masuk
 
 
                   <div class="form-group {{ $errors->has('isi_disposisi') ? ' has-error' : '' }}">
-                      <label for="inputPassword3" class="col-sm-3 control-label">Unit Kerja</label>
+                      <label for="inputPassword3" class="col-sm-3 control-label">Isi Disposisi</label>
                       <div class="col-sm-9">
                           <textarea name="isi_disposisi" class="form-control" id="" cols="30" rows="10">{{ $disposisi->isi_disposisi }}</textarea>
 

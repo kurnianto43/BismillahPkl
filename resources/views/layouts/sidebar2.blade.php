@@ -42,7 +42,7 @@
         </li>
         <li class="treeview">
           <a href="">
-            <i class="fa fa-envelope-open"></i> <span>Surat Keluar</span>
+            <i class="fa fa-envelope"></i> <span>Surat Keluar</span>
             <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -54,7 +54,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-envelope"></i> <span>Instansi</span>
+            <i class="fa fa-briefcase"></i> <span>Instansi</span>
             <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -67,7 +67,7 @@
 
         <li class="treeview">
           <a href="">
-            <i class="fa fa-envelope-open"></i> <span>Disposisi</span>
+            <i class="fa fa-sticky-note"></i> <span>Disposisi</span>
             <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -75,19 +75,6 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('disposisi.index') }}"><i class="fa fa-circle-o"></i> Data Disposisi</a></li>
             <li><a href="{{ route('disposisi.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Disposisi</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-cogs"></i> <span>Pengaturan</span>
-            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('user.create') }}"><i class="fa fa-circle-o"></i> Akun</a></li>
-            <li><a href="{{ route('home.set') }}"><i class="fa fa-circle-o"></i> Lain-lain</a></li>
           </ul>
         </li>
       </ul>

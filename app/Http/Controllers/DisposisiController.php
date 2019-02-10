@@ -19,15 +19,20 @@ class DisposisiController extends Controller
     	return view ('disposisi.tambahdata',compact('suratmasuks'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate(request(), [
+            // 'nomor_surat' => Rule::unique('surat_masuks', 'nomor_surat')->ignore($suratmasuk->id),
+            'surat_masuk_id' => 'required|unique:disposisis',
+            'isi_disposisi' => 'required|max:100',
+        ]); 
 
     	Disposisi::create([
     		'surat_masuk_id'=>request('surat_masuk_id'),
     		'isi_disposisi'=>request('isi_disposisi'),
     	]);
 
-        return redirect()->route('disposisi.index')->with('success', 'Data ditambahkan');
+        return redirect()->route('disposisi.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit(Disposisi $disposisi)
@@ -36,8 +41,14 @@ class DisposisiController extends Controller
         return view ('disposisi.editdisposisi',compact('disposisi', 'suratmasuks'));
     }
 
-    public function update(Disposisi $disposisi)
+    public function update(Request $request, Disposisi $disposisi)
     {
+         $this->validate(request(), [
+            'surat_masuk_id' => Rule::unique('disposisis', 'surat_masuk_id')->ignore($disposisi->id),
+            'surat_masuk_id' => 'required',
+            'isi_disposisi' => 'required|max:100',
+        ]);
+
         $disposisi->update([
             'surat_masuk_id'=>request('surat_masuk_id'),
             'isi_disposisi'=>request('isi_disposisi'),
@@ -54,9 +65,9 @@ class DisposisiController extends Controller
 
     public function pdf()
     {
-        $suratkeluars = SuratKeluar::all();
-        $pdf = PDF::loadView('suratkeluar.laporansuratkeluar', compact('suratkeluars'));
+        $disposisis = Disposisi::all();
+        $pdf = PDF::loadView('disposisi.laporandisposisi', compact('disposisis'));
         $pdf->setPaper('a4', 'landscape');
-        return $pdf->download('suratkeluar.pdf', compact('suratkeluar'));
+        return $pdf->download('disposisi.pdf', compact('disposisis'));
     }
 }

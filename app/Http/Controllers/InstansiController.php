@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Instansi;
+use Illuminate\Validation\Rule;
+use PDF;
 
 class InstansiController extends Controller
 {
@@ -18,8 +20,15 @@ class InstansiController extends Controller
     	return view('instansi.tambahdata');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate(request(), [
+            // 'nomor_surat' => Rule::unique('surat_masuks', 'nomor_surat')->ignore($suratmasuk->id),
+            'nama_instansi' => 'required|unique:instansis|max:30',
+            'alamat' => 'required|max:100',
+            'no_telp' => 'required|max:13',
+        ]); 
+
     	Instansi::create([
     		'nama_instansi' => request('nama_instansi'),
     		'alamat' => request('alamat'),
@@ -36,6 +45,13 @@ class InstansiController extends Controller
 
     public function update(Instansi $instansi)
     {
+        $this->validate(request(), [
+            'nama_instansi' => Rule::unique('instansis', 'nama_instansi')->ignore($instansi->id),
+            'nama_instansi' => 'required|max:30',
+            'alamat' => 'required|max:100',
+            'no_telp' => 'required|max:13',
+        ]); 
+
     	$instansi->update([
     		'nama_instansi' => request('nama_instansi'),
     		'alamat' => request('alamat'),
@@ -48,6 +64,15 @@ class InstansiController extends Controller
     public function destroy(Instansi $instansi)
     {
     	$instansi->delete();
-    	return redirect()->route('instansi.index')->with('success', 'Data dihapus');
+    	return redirect()->route('instansi.index')->with('success', 'Data berhasil dihapus');
+    }
+
+
+    public function pdf()
+    {
+        $instansis = Instansi::all();
+        $pdf = PDF::loadView('instansi.laporaninstansi', compact('instansis'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('instansi.pdf', compact('instansis'));
     }
 }

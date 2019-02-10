@@ -152,7 +152,9 @@ return [
         'tanggal_surat' => 'Tanggal surat', 
         'tanggal_diterima' => 'Tanggal diterima',
         'lampiran' => 'Lampiran',
-        'tanggal_kirim' => 'Tanggal dikirim'
+        'tanggal_kirim' => 'Tanggal dikirim',
+        'surat_masuk_id' => 'Nomor surat masuk',
+        'isi_disposisi' => 'Isi disposisi',
     ],
 
 ];

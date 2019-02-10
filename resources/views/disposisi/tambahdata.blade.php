@@ -35,8 +35,8 @@ Tambah Data Surat Masuk
                   <label for="inputEmail3" class="col-sm-3 control-label">Nomor Surat Masuk</label>
                   <div class="col-sm-9">
                     <select name="surat_masuk_id" class="form-control">
+                      <option value="" disabled selected>Pilih nomor surat</option>
                       @foreach($suratmasuks as $suratmasuk)
-                      <option></option>
                       <option value="{{$suratmasuk->id}}">{{$suratmasuk->nomor_surat}}</option>
                       @endforeach
                     </select>
@@ -49,13 +49,13 @@ Tambah Data Surat Masuk
                 </div>
 
 
-                <div class="form-group {{ $errors->has('surat_masuk_id') ? ' has-error' : '' }}">
+                <div class="form-group {{ $errors->has('isi_disposisi') ? ' has-error' : '' }}">
                     <label for="inputPassword3" class="col-sm-3 control-label">Isi Disposisi</label>
                     <div class="col-sm-9">
                         <textarea name="isi_disposisi" class="form-control" id="" cols="30" rows="4"></textarea>
 
-                            @if ($errors->has('surat_masuk_id'))      
-                                    <span class="help-block">{{ $errors->first('surat_masuk_id') }}</span>
+                            @if ($errors->has('isi_disposisi'))      
+                                    <span class="help-block">{{ $errors->first('isi_disposisi') }}</span>
                             @endif
 
                     </div>
@@ -64,7 +64,7 @@ Tambah Data Surat Masuk
             </div>
               <!-- /.box-body -->
               <div class="box-footer">
-               <a href="{{ route('suratmasuk.index') }}" class="btn btn-default">Batal</a>
+               <a href="{{ route('disposisi.index') }}" class="btn btn-default">Batal</a>
                 <button type="submit" class="btn btn-info pull-right">Simpan</button>
               </div>
               <!-- /.box-footer -->

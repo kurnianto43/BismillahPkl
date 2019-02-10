@@ -54,6 +54,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/ubah-data/instansi/{instansi}', 'InstansiController@edit')->name('instansi.edit');
     Route::patch('/ubah-data/instansi/{instansi}', 'InstansiController@update')->name('instansi.update');
     Route::delete('/hapus-data/instansi/{instansi}', 'InstansiController@destroy')->name('instansi.destroy');
+    Route::get('/instansi-pdf', 'InstansiController@pdf')->name('instansi.pdf');
 
     Route::get('/surat-keluar', 'SuratKeluarController@index')->name('suratkeluar.index');
     Route::get('/surat-keluar/day', 'SuratKeluarController@day')->name('suratkeluar.day');
