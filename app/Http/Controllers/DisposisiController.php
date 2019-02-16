@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Disposisi;
 use App\SuratMasuk;
+use PDF;
 
 class DisposisiController extends Controller
 {

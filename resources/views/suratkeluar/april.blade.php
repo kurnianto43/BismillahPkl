@@ -1,18 +1,17 @@
 @extends('layouts.master2')
 
 @section('title')
-Data surat masuk
+Data surat keluar
 @endsection
 @section('content')
-
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data surat masuk
+        Data surat keluar April
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href=""><i class="fa fa-envelope-open"></i> surat masuk</a></li>
+        <li class="active"><a href=""><i class="fa fa-envelope-open"></i> surat keluar</a></li>
       </ol>
     </section>
 
@@ -24,9 +23,9 @@ Data surat masuk
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Data Surat Masuk {{ $dt->format('l') }}</h3>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.pdfday') }}"><i class="fa fa-print"></i></a>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.index') }}">Kembali</a>
+              <h3 class="box-title">Tabel Data Surat Keluar April</h3>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.index') }}">Kembali</a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfjan') }}"><i class="fa fa-print"></i></a>
             </div>
             
             <!-- /.box-header -->
@@ -43,14 +42,16 @@ Data surat masuk
                 </tr>
                 </thead>
                 <tbody>
-                @foreach( $data as $row )
+                <?php $no = 0;?>
+                    @foreach($data as $row)
+                <?php $no++ ;?>
                     <tr>
-                      <td>{{ $row -> id  }}</td>
+                      <td>{{ $no}}</td>
                       <td>{{ $row -> nomor_surat }}</td>
                       <td>{{ $row -> instansi -> nama_instansi }}</td>
                       <td>{{ $row -> perihal }}</td>
-                      <td>{{ $row -> tanggal_surat }}</td>
-                      <td>{{ $row -> tanggal_diterima }}</td>
+                      <td>{{ \Carbon\Carbon::parse($row -> tanggal_surat)->format('d/m/Y')}}</td>
+                      <td>{{ \Carbon\Carbon::parse($row -> tanggal_kirim)->format('d/m/Y')}}</td>
                     </tr>
                 @endforeach
                 </tbody>

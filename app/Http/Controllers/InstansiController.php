@@ -24,9 +24,9 @@ class InstansiController extends Controller
     {
         $this->validate(request(), [
             // 'nomor_surat' => Rule::unique('surat_masuks', 'nomor_surat')->ignore($suratmasuk->id),
-            'nama_instansi' => 'required|unique:instansis|max:30',
+            'nama_instansi' => 'required|unique:instansis|max:100',
             'alamat' => 'required|max:100',
-            'no_telp' => 'required|max:13',
+            'no_telp' => 'required|max:15',
         ]); 
 
     	Instansi::create([
@@ -35,7 +35,7 @@ class InstansiController extends Controller
     		'no_telp' => request('no_telp')
     	]);
 
-    	return redirect()->route('instansi.index')->with('success', 'Berhasil');
+    	return redirect()->route('instansi.index')->with('success', 'Berhasil data telah ditambahkan');
     }
 
     public function edit(Instansi $instansi)
@@ -47,9 +47,9 @@ class InstansiController extends Controller
     {
         $this->validate(request(), [
             'nama_instansi' => Rule::unique('instansis', 'nama_instansi')->ignore($instansi->id),
-            'nama_instansi' => 'required|max:30',
+            'nama_instansi' => 'required|max:100',
             'alamat' => 'required|max:100',
-            'no_telp' => 'required|max:13',
+            'no_telp' => 'required|max:15',
         ]); 
 
     	$instansi->update([

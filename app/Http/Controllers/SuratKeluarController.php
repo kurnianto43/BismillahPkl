@@ -23,7 +23,7 @@ class SuratKeluarController extends Controller
     {
         $dt = Carbon::now();
 
-        $data = SuratKeluar::whereDay('created_at', $dt->day)->get();
+        $data = SuratKeluar::whereDay('tanggal_kirim', $dt->day)->get();
         return view('suratkeluar.day', compact('data', 'dt'));
     }
 
@@ -31,8 +31,21 @@ class SuratKeluarController extends Controller
     {
         $dt = Carbon::now();
 
-        $data = SuratKeluar::whereMonth('created_at', $dt->month)->get();
+        $data = SuratKeluar::whereMonth('tanggal_kirim', $dt->month)->get();
         return view('suratkeluar.month', compact('data', 'dt'));
+    }
+
+//ini bikin next month
+    public function januari()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 01)->get();
+        return view('suratkeluar.januari', compact('data'));
+    }
+
+    public function februari()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 02)->get();
+        return view('suratkeluar.februari', compact('data'));
     }
 
     public function create()
@@ -132,19 +145,130 @@ class SuratKeluarController extends Controller
     {
         $dt = Carbon::now();
 
-        $suratkeluars = SuratKeluar::whereMonth('created_at', $dt->month)->get();
-        $pdf = PDF::loadView('suratkeluar.laporansuratkeluar', compact('suratkeluars'));
+        $suratkeluars = SuratKeluar::whereMonth('tanggal_kirim', $dt->month)->get();
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarbulanan', compact('suratkeluars', 'dt'));
         $pdf->setPaper('a4', 'landscape');
-        return $pdf->download('surat-keluar-bulanan.pdf', compact('suratkeluars'));
+        return $pdf->download('surat-keluar-bulanan.pdf', compact('suratkeluars', 'dt'));
     }
 
     public function pdfday()
     {
         $dt = Carbon::now();
 
-        $suratkeluars = SuratKeluar::whereDay('created_at', $dt->day)->get();
-        $pdf = PDF::loadView('suratkeluar.laporansuratkeluar', compact('suratkeluars'));
+        $suratkeluars = SuratKeluar::whereDay('tanggal_kirim', $dt->day)->get();
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarharian', compact('suratkeluars', 'dt'));
         $pdf->setPaper('a4', 'landscape');
-        return $pdf->download('surat-keluar-harian.pdf', compact('suratkeluars'));
+        return $pdf->download('surat-keluar-harian.pdf', compact('suratkeluars', 'dt'));
     }
+
+
+// ini
+    public function pdfjanuari()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 01)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarjan', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-jan.pdf', compact('data'));
+    }
+
+     public function pdffebruari()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 02)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarfeb', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-feb.pdf', compact('data'));
+    }
+
+     public function pdfmaret()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 03)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarmar', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-man.pdf', compact('data'));
+    }
+
+     public function pdfapril()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 04)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarapr', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-apr.pdf', compact('data'));
+    }
+
+     public function pdfmei()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 05)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarmei', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-mei.pdf', compact('data'));
+    }
+
+     public function pdfjuni()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 06)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarjun', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-jun.pdf', compact('data'));
+    }
+
+     public function pdfjuli()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 07)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarjul', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-jul.pdf', compact('data'));
+    }
+
+    public function pdfagustus()
+    {
+        $data = SuratKeluar::whereMonth('tanggal_kirim', 8)->get();
+        // dd($data);
+        $pdf = PDF::loadView('suratkeluar.laporansuratkeluarags', compact('data'));
+        $pdf->setPaper('a4', 'landscape');
+        return $pdf->download('surat-keluar-ags.pdf', compact('data'));
+    }
+
+
+    //  public function pdfseptember()
+    // {
+    //     $data = SuratKeluar::whereMonth('tanggal_kirim', 09)->get();
+    //     // dd($data);
+    //     $pdf = PDF::loadView('suratkeluar.laporansuratkeluarsep', compact('data'));
+    //     $pdf->setPaper('a4', 'landscape');
+    //     return $pdf->download('surat-keluar-sep.pdf', compact('data'));
+    // }
+
+    // public function pdfoktober()
+    // {
+    //     $data = SuratKeluar::whereMonth('tanggal_kirim', 10)->get();
+    //     // dd($data);
+    //     $pdf = PDF::loadView('suratkeluar.laporansuratkeluarokt', compact('data'));
+    //     $pdf->setPaper('a4', 'landscape');
+    //     return $pdf->download('surat-keluar-okt.pdf', compact('data'));
+    // }
+
+    // public function pdfnovember()
+    // {
+    //     $data = SuratKeluar::whereMonth('tanggal_kirim', 11)->get();
+    //     // dd($data);
+    //     $pdf = PDF::loadView('suratkeluar.laporansuratkeluarnov', compact('data'));
+    //     $pdf->setPaper('a4', 'landscape');
+    //     return $pdf->download('surat-keluar-nov.pdf', compact('data'));
+    // }
+
+    // public function pdfdesember()
+    // {
+    //     $data = SuratKeluar::whereMonth('tanggal_kirim', 12)->get();
+    //     // dd($data);
+    //     $pdf = PDF::loadView('suratkeluar.laporansuratkeluardes', compact('data'));
+    //     $pdf->setPaper('a4', 'landscape');
+    //     return $pdf->download('surat-keluar-des.pdf', compact('data'));
+    // }
 }

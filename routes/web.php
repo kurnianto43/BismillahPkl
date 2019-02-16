@@ -47,6 +47,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/disposisi/{disposisi}/ubah-data' , 'DisposisiController@edit')->name('disposisi.edit');
     Route::patch('/disposisi/{disposisi}/ubah-data' , 'DisposisiController@update')->name('disposisi.update');
     Route::delete('/disposisi/{disposisi}/hapus-data' , 'DisposisiController@destroy')->name('disposisi.destroy');
+    Route::get('/disposisi-pdf', 'DisposisiController@pdf')->name('disposisi.pdf');
 
     Route::get('/data-instansi', 'InstansiController@index')->name('instansi.index');
     Route::get('/tambah-data/instansi', 'InstansiController@create')->name('instansi.create');
@@ -68,5 +69,42 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::delete('/surat-keluar/{suratkeluar}/hapus', 'SuratKeluarController@destroy')->name('suratkeluar.destroy');
     Route::get('/surat-keluar-pdf', 'SuratKeluarController@pdf')->name('suratkeluar.pdf');
     Route::get('/surat-keluar-pdf/bulanan', 'SuratKeluarController@pdfmonth')->name('suratkeluar.pdfmonth');
+//start
+    Route::get('/surat-keluar/januari', 'SuratKeluarController@januari')->name('suratkeluar.jan');
+    Route::get('/surat-keluar-pdf/januari', 'SuratKeluarController@pdfjanuari')->name('suratkeluar.pdfjan');
+//end
+    Route::get('/surat-keluar/februari', 'SuratKeluarController@februari')->name('suratkeluar.feb');
+    Route::get('/surat-keluar-pdf/februari', 'SuratKeluarController@pdffebruari')->name('suratkeluar.pdffeb');
+
+    Route::get('/surat-keluar/maret', 'SuratKeluarController@maret')->name('suratkeluar.mar');
+    Route::get('/surat-keluar-pdf/maret', 'SuratKeluarController@pdfmaret')->name('suratkeluar.pdfmar');
+
+    Route::get('/surat-keluar/april', 'SuratKeluarController@april')->name('suratkeluar.apr');
+    Route::get('/surat-keluar-pdf/april', 'SuratKeluarController@pdfapril')->name('suratkeluar.pdfapr');
+
+    Route::get('/surat-keluar/mei', 'SuratKeluarController@mei')->name('suratkeluar.mei');
+    Route::get('/surat-keluar-pdf/mei', 'SuratKeluarController@pdfmei')->name('suratkeluar.pdfmei');
+
+    Route::get('/surat-keluar/juni', 'SuratKeluarController@juni')->name('suratkeluar.jun');
+    Route::get('/surat-keluar-pdf/juni', 'SuratKeluarController@pdfjuni')->name('suratkeluar.pdfjun');
+
+    Route::get('/surat-keluar/juli', 'SuratKeluarController@juli')->name('suratkeluar.jul');
+    Route::get('/surat-keluar-pdf/juli', 'SuratKeluarController@pdfjun')->name('suratkeluar.pdfjul');
+
+    Route::get('/surat-keluar/agustus', 'SuratKeluarController@agustus')->name('suratkeluar.ags');
+    Route::get('/surat-keluar-pdf/agustus', 'SuratKeluarController@pdfags')->name('suratkeluar.pdfags');
+
+    Route::get('/surat-keluar/september', 'SuratKeluarController@september')->name('suratkeluar.sep');
+    Route::get('/surat-keluar-pdf/september', 'SuratKeluarController@pdfsep')->name('suratkeluar.pdfsep');
+
+    Route::get('/surat-keluar/oktober', 'SuratKeluarController@oktober')->name('suratkeluar.okt');
+    Route::get('/surat-keluar-pdf/oktober', 'SuratKeluarController@pdfokt')->name('suratkeluar.pdfokt');
+
+    Route::get('/surat-keluar/november', 'SuratKeluarController@november')->name('suratkeluar.nov');
+    Route::get('/surat-keluar-pdf/november', 'SuratKeluarController@pdfnov')->name('suratkeluar.pdfnov');
+
+    Route::get('/surat-keluar/desember', 'SuratKeluarController@desember')->name('suratkeluar.des');
+    Route::get('/surat-keluar-pdf/desember', 'SuratKeluarController@pdfdes')->name('suratkeluar.pdfdes');
+
     Route::get('/surat-keluar-pdf/harian', 'SuratKeluarController@pdfday')->name('suratkeluar.pdfday');   
 });

@@ -34,12 +34,12 @@
             <tr>
                 <td width="20%" align="center"><img src="images/logobjblap.png" alt="" ></td>
                 <td width="60%" align="center"><h3>UPT PAJAK DAERAH WILAYAH I KOTA BANJARBARU</h3><p>Jl. Mistar Cokrokusumo Kota Banjarbaru <br> Kalimantan Selatan</p></td>
-                <td width="20%" align="center"><img src="images/logokal3.png" alt=""></td>
+                <td width="20%" align="center"><img src="" alt=""></td>
             </tr>
         </table>
         <hr>
 
-    <h3 style="text-align: center;">Laporan Surat Keluar</h3>
+    <h3 style="text-align: center;">Laporan Surat Keluar </h3>
     <div id="isi">
         <table align="center" style="border : 1px solid black;
                                 border-collapse: collapse;
