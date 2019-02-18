@@ -28,16 +28,25 @@ Data surat masuk
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.pdf') }}"><i class="fa fa-print"></i></a>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.day') }}">Harian</a>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratmasuk.month') }}">Bulanan</a>
+              <div class="dropdown pull-right" style="margin-left: 5px">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pilih Laporan
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ route('suratmasuk.jan') }}">Januari</a></li>
+                  <li><a href="{{ route('suratmasuk.feb') }}">Februari</a></li>
+                  <li><a href="{{ route('suratmasuk.mar') }}">Maret</a></li>
+                  <li><a href="{{ route('suratmasuk.apr') }}">April</a></li>
+                  <li><a href="{{ route('suratmasuk.mei') }}">Mei</a></li>
+                  <li><a href="{{ route('suratmasuk.jun') }}">Juni</a></li>
+                  <li><a href="{{ route('suratmasuk.jul') }}">Juli</a></li>
+                  <li><a href="{{ route('suratmasuk.ags') }}">Agustus</a></li>
+                  <li><a href="{{ route('suratmasuk.sep') }}">September</a></li>
+                  <li><a href="{{ route('suratmasuk.okt') }}">Oktober</a></li>
+                  <li><a href="{{ route('suratmasuk.nov') }}">November</a></li>
+                  <li><a href="{{ route('suratmasuk.des') }}">Desember</a></li>
+                </ul>
+              </div>
               <a class="btn btn-primary pull-right" href="{{ route('suratmasuk.create') }}"><i class="fa fa-plus"></i></a>
-                <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                  </ul>
-                </div>
             </div>
             
             <!-- /.box-header -->

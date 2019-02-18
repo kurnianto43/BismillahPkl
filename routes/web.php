@@ -106,5 +106,45 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/surat-keluar/desember', 'SuratKeluarController@desember')->name('suratkeluar.des');
     Route::get('/surat-keluar-pdf/desember', 'SuratKeluarController@pdfdes')->name('suratkeluar.pdfdes');
 
-    Route::get('/surat-keluar-pdf/harian', 'SuratKeluarController@pdfday')->name('suratkeluar.pdfday');   
+    Route::get('/surat-keluar-pdf/harian', 'SuratKeluarController@pdfday')->name('suratkeluar.pdfday');
+
+
+
+
+    //start
+    Route::get('/surat-masuk/januari', 'SuratMasukController@januari')->name('suratmasuk.jan');
+    Route::get('/surat-masuk-pdf/januari', 'SuratMasukController@pdfjanuari')->name('suratmasuk.pdfjan');
+//end
+    Route::get('/surat-masuk/februari', 'SuratMasukController@februari')->name('suratmasuk.feb');
+    Route::get('/surat-masuk-pdf/februari', 'SuratMasukController@pdffebruari')->name('suratmasuk.pdffeb');
+
+    Route::get('/surat-masuk/maret', 'SuratMasukController@maret')->name('suratmasuk.mar');
+    Route::get('/surat-masuk-pdf/maret', 'SuratMasukController@pdfmaret')->name('suratmasuk.pdfmar');
+
+    Route::get('/surat-masuk/april', 'SuratMasukController@april')->name('suratmasuk.apr');
+    Route::get('/surat-masuk-pdf/april', 'SuratMasukController@pdfapril')->name('suratmasuk.pdfapr');
+
+    Route::get('/surat-masuk/mei', 'SuratMasukController@mei')->name('suratmasuk.mei');
+    Route::get('/surat-masuk-pdf/mei', 'SuratMasukController@pdfmei')->name('suratmasuk.pdfmei');
+
+    Route::get('/surat-masuk/juni', 'SuratMasukController@juni')->name('suratmasuk.jun');
+    Route::get('/surat-masuk-pdf/juni', 'SuratMasukController@pdfjuni')->name('suratmasuk.pdfjun');
+
+    Route::get('/surat-masuk/juli', 'SuratMasukController@juli')->name('suratmasuk.jul');
+    Route::get('/surat-masuk-pdf/juli', 'SuratMasukController@pdfjul')->name('suratmasuk.pdfjul');
+
+    Route::get('/surat-masuk/agustus', 'SuratMasukController@agustus')->name('suratmasuk.ags');
+    Route::get('/surat-masuk-pdf/agustus', 'SuratMasukController@pdfags')->name('suratmasuk.pdfags');
+
+    Route::get('/surat-masuk/september', 'SuratMasukController@september')->name('suratmasuk.sep');
+    Route::get('/surat-masuk-pdf/september', 'SuratMasukController@pdfsep')->name('suratmasuk.pdfsep');
+
+    Route::get('/surat-masuk/oktober', 'SuratMasukController@oktober')->name('suratmasuk.okt');
+    Route::get('/surat-masuk-pdf/oktober', 'SuratMasukController@pdfokt')->name('suratmasuk.pdfokt');
+
+    Route::get('/surat-masuk/november', 'SuratMasukController@november')->name('suratmasuk.nov');
+    Route::get('/surat-masuk-pdf/november', 'SuratMasukController@pdfnov')->name('suratmasuk.pdfnov');
+
+    Route::get('/surat-masuk/desember', 'SuratMasukController@desember')->name('suratmasuk.des');
+    Route::get('/surat-masuk-pdf/desember', 'SuratMasukController@pdfdes')->name('suratmasuk.pdfdes');   
 });
