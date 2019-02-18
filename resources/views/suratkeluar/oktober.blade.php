@@ -25,7 +25,7 @@ Data surat keluar
             <div class="box-header">
               <h3 class="box-title">Tabel Data Surat Keluar Oktober</h3>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.index') }}">Kembali</a>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfjan') }}"><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfokt') }}"><i class="fa fa-print"></i></a>
             </div>
             
             <!-- /.box-header -->

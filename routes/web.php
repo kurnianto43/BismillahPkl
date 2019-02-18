@@ -89,7 +89,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/surat-keluar-pdf/juni', 'SuratKeluarController@pdfjuni')->name('suratkeluar.pdfjun');
 
     Route::get('/surat-keluar/juli', 'SuratKeluarController@juli')->name('suratkeluar.jul');
-    Route::get('/surat-keluar-pdf/juli', 'SuratKeluarController@pdfjun')->name('suratkeluar.pdfjul');
+    Route::get('/surat-keluar-pdf/juli', 'SuratKeluarController@pdfjul')->name('suratkeluar.pdfjul');
 
     Route::get('/surat-keluar/agustus', 'SuratKeluarController@agustus')->name('suratkeluar.ags');
     Route::get('/surat-keluar-pdf/agustus', 'SuratKeluarController@pdfags')->name('suratkeluar.pdfags');

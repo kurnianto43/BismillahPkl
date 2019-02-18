@@ -1,14 +1,14 @@
 @extends('layouts.master2')
 
 @section('title')
-Data surat keluar
+Data surat keluar maret
 @endsection
 @section('content')
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data surat keluar Maret
+        Data surat keluar maret
       </h1>
       <ol class="breadcrumb">
         <li class="active"><a href=""><i class="fa fa-envelope-open"></i> surat keluar</a></li>
@@ -25,7 +25,7 @@ Data surat keluar
             <div class="box-header">
               <h3 class="box-title">Tabel Data Surat Keluar Maret</h3>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.index') }}">Kembali</a>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfjan') }}"><i class="fa fa-print"></i></a>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfmar') }}"><i class="fa fa-print"></i></a>
             </div>
             
             <!-- /.box-header -->

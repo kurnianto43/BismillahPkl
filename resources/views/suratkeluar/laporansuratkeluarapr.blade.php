@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UPT Pajak Daerah - Laporan Surat Keluar September</title>
+    <title>UPT Pajak Daerah - Laporan Surat Keluar April</title>
     
       <style>
         body 
@@ -39,7 +39,7 @@
         </table>
         <hr>
 
-    <h3 style="text-align: center;">Laporan Surat Keluar September</h3>
+    <h3 style="text-align: center;">Laporan Surat Keluar April</h3>
     <div id="isi">
         <table align="center" style="border : 1px solid black;
                                 border-collapse: collapse;

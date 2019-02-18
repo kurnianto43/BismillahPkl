@@ -39,7 +39,7 @@
         </table>
         <hr>
 
-    <h3 style="text-align: center;">Laporan Surat Keluar Januari</h3>
+    <h3 style="text-align: center;">Laporan Surat Keluar Juli</h3>
     <div id="isi">
         <table align="center" style="border : 1px solid black;
                                 border-collapse: collapse;
