@@ -24,7 +24,7 @@ Data surat keluar
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Data Surat Keluar {{ $dt->format('l') }}</h3>
+              <h3 class="box-title">Tabel Data Surat Keluar {{ $dt->format('d M Y') }}</h3>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.index') }}">Kembali</a>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdfday') }}"><i class="fa fa-print"></i></a>
             </div>

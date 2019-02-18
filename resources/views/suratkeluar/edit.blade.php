@@ -97,7 +97,7 @@ Ubah Data Surat Keluar
 
 
                 <div class="form-group {{ $errors->has('tanggal_kirim') ? ' has-error' : '' }}">
-                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Diterima</label>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Tanggal Dikirim</label>
                   <div class="col-sm-9">
                     <input type="date" name="tanggal_kirim" value="{{ $suratkeluar -> tanggal_kirim }}" class="form-control" id="inputPassword3">
 

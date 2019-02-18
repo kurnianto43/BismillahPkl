@@ -142,9 +142,9 @@ class SuratMasukController extends Controller
         $dt = Carbon::now();
 
         $suratmasuks = SuratMasuk::whereMonth('created_at', $dt->month)->get();
-        $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
+        $pdf = PDF::loadView('suratmasuk.laporansuratmasukbulanan', compact('suratmasuks', 'dt'));
         $pdf->setPaper('a4', 'landscape');
-        return $pdf->download('suratmasuk-bulanan.pdf', compact('suratmasuks'));
+        return $pdf->download('suratmasuk-bulanan.pdf', compact('suratmasuks', 'dt'));
     }
 
 
@@ -153,9 +153,9 @@ class SuratMasukController extends Controller
         $dt = Carbon::now();
 
         $suratmasuks = SuratMasuk::whereDay('created_at', $dt->day)->get();
-        $pdf = PDF::loadView('suratmasuk.laporansuratmasuk', compact('suratmasuks'));
+        $pdf = PDF::loadView('suratmasuk.laporansuratmasukharian', compact('suratmasuks', 'dt'));
         $pdf->setPaper('a4', 'landscape');
-        return $pdf->download('suratmasuk-harian.pdf', compact('suratmasuks'));
+        return $pdf->download('suratmasuk-harian.pdf', compact('suratmasuks', 'dt'));
     }
 
 }

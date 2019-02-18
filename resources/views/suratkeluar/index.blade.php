@@ -28,6 +28,24 @@ Data surat keluar
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.pdf') }}"><i class="fa fa-print"></i></a>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.day') }}"> Harian</a>
               <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('suratkeluar.month') }}"> Bulanan</a>
+              <div class="dropdown pull-right" style="margin-left: 5px">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pilih Laporan
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ route('suratkeluar.jan') }}">Januari</a></li>
+                  <li><a href="{{ route('suratkeluar.feb') }}">Februari</a></li>
+                  <li><a href="{{ route('suratkeluar.mar') }}">Maret</a></li>
+                  <li><a href="{{ route('suratkeluar.apr') }}">April</a></li>
+                  <li><a href="{{ route('suratkeluar.mei') }}">Mei</a></li>
+                  <li><a href="{{ route('suratkeluar.jun') }}">Juni</a></li>
+                  <li><a href="{{ route('suratkeluar.jul') }}">Juli</a></li>
+                  <li><a href="{{ route('suratkeluar.ags') }}">Agustus</a></li>
+                  <li><a href="{{ route('suratkeluar.sep') }}">September</a></li>
+                  <li><a href="{{ route('suratkeluar.okt') }}">Oktober</a></li>
+                  <li><a href="{{ route('suratkeluar.nov') }}">November</a></li>
+                  <li><a href="{{ route('suratkeluar.des') }}">Desember</a></li>
+                </ul>
+              </div>
               <a class="btn btn-primary pull-right" href="{{ route('suratkeluar.create') }}"><i class="fa fa-plus"></i></a>
             </div>
             
@@ -56,7 +74,7 @@ Data surat keluar
                       <td>{{ $suratkeluar -> instansi -> nama_instansi }}</td>
                       <td>{{ $suratkeluar -> perihal }}</td>
                       <td>{{ \Carbon\Carbon::parse($suratkeluar -> tanggal_surat)->format('d/m/Y')}}</td>
-                      <td>{{ $suratkeluar -> tanggal_kirim }}</td>
+                      <td>{{ \Carbon\Carbon::parse($suratkeluar -> tanggal_kirim)->format('d/m/Y')}}</td>
       
                       <td>
                         <a class="btn btn-warning btn-sm" href="{{ route('suratkeluar.edit', $suratkeluar) }}"><i class="fa fa-edit"></i></a>

@@ -1,7 +1,7 @@
 @extends('layouts.master2')
 
 @section('title')
-Data surat masuk
+Data Disposisi
 @endsection
 @section('content')
 
@@ -9,10 +9,10 @@ Data surat masuk
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Surat Masuk
+        Data Disposisi
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-envelope-open"></i> Surat Masuk</a></li>
+        <li class="active"><a href="{{ route('suratmasuk.index') }}"><i class="fa fa-envelope-open"></i> Disposisi</a></li>
       </ol>
     </section>
 
@@ -24,8 +24,8 @@ Data surat masuk
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel data surat masuk</h3>
-              <a style="margin-left: 5px;" class="btn btn-default pull-right" href=""><i class="fa fa-print"></i></a>
+              <h3 class="box-title">Tabel data disposisi</h3>
+              <a style="margin-left: 5px;" class="btn btn-default pull-right" href="{{ route('disposisi.pdf') }}"><i class="fa fa-print"></i></a>
               <a class="btn btn-primary pull-right" href="{{ route('disposisi.create') }}"><i class="fa fa-plus"></i></a>
             </div>
             
